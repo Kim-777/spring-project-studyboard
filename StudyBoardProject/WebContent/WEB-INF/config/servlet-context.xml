@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xmlns:beans="http://www.springframework.org/schema/beans"
+			 xmlns:context="http://www.springframework.org/schema/context"
+			 xsi:schemaLocation="http://www.springframework.org/schema/mvc
+			 					 http://www.springframework.org/schema/mvc/spring-mvc.xsd
+			 					 http://www.springframework.org/schema/beans
+			 					 http://www.springframework.org/schema/beans/spring-beans.xsd
+			 					 http://www.springframework.org/schema/context
+			 					 http://www.springframework.org/schema/context/spring-context.xsd">
+			 												 
+	<!-- 스캔한 패키지 내부의 클래스 중에 controller 들이 있으면 controller로 등록합니다. -->
+	<annotation-driven/>
+	
+	<!-- 스캔한 빈들이 모여 있는 패키지를 지정합니다. -->
+	<context:component-scan base-package="me.co.kim.controller"/>
+	
+	<!-- Controller의 메서드에서 반환하는 문자열의 앞 뒤에 항상 붙는 정보입니다. -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/"/>
+		<beans:property name="suffix" value=".jsp"/>
+	</beans:bean>
+	
+	<!-- 정적파일(js, css 등) 경로를 세팅합니다. -->
+	<resources mapping="/**" location="/resources/"/>
+	
+</beans:beans>

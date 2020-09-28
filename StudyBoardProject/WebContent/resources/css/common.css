@@ -1,5 +1,30 @@
 @charset "UTF-8";
 
+/* ------------------ 전체적인 틀 영역입니다 ------------------  */
+* {padding:0; margin:0;}
+ol, ul, li {list-style-type: none;}
+a {text-decoration: none; color:black; outline:none;}
+body {background-color: white; font-family: 'Nanum Gothic', sans-serif;}
+img {vertical-align:top; border:0;}
+fieldset {border:none;}
+button {border: none;}
+
+header {
+    height:auto;
+    border-bottom:1px solid #e8e8e8;
+}
+
 h1 {
     color:gray;
+}
+
+form {
+	border: 1px solid  #e8e8e8;
+	padding: 10px;
+	margin:10px;
+}
+
+footer {
+	height:auto;
+    border-top:1px solid #e8e8e8;
 }

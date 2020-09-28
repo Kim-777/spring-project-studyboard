@@ -18,7 +18,7 @@
 <body>
 
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
-	<h1>hello spring mvc</h1>
+	<h1>인덱스페이지입니다.</h1>
 	<img src="images/ryan.jpg"/>
 	<table>
 		<thead>

@@ -19,15 +19,23 @@
 	<!-- header 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
 	<!-- header 부분을 import 합니다(end) -->
-	<h1>게시판 글읽기 부분입니다.</h1>
-	
-	<div class="button_boxs_holder">
-		<a href="${root}board/main">목록보기</a>
-		<a href="${root}board/modify">수정하기</a>
-		<a href="${root}board/delete">삭제하기</a>
-	</div>
-	<img src="${root}images/ryan.jpg"/>
-	
+
+
+	<!-- 게시판 글읽기 메인 부분입니다(start) -->
+	<section>
+		<div class="main_holder">
+			<h1>게시판 글읽기 부분입니다.</h1>
+			<div class="button_boxs_holder">
+				<a href="${root}board/main">목록보기</a>
+				<a href="${root}board/modify">수정하기</a>
+				<a href="${root}board/delete">삭제하기</a>
+			</div>
+			<img src="${root}images/ryan.jpg"/>		
+		</div>
+	</section>	
+	<!-- 게시판 글읽기 메인 부분입니다(end) -->
+
+
 	<!-- bottom 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/bottom.jsp"/>
 	<!-- bottom 부분을 import 합니다(end) -->

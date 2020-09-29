@@ -4,7 +4,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}/"/>
 <!-- 상단 부분을 정의하는 jsp입니다(start) -->
 <header>
-	<div id="heagerWrap">
+	<div id="headerWrap">
 		<a href="${root}index">메인으로돌아가기</a>
 		<ul>
 			<li><a href="${root}board/main">게시판 바로가기</a></li>

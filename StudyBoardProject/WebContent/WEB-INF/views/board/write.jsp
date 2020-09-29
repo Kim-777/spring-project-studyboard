@@ -19,12 +19,20 @@
 	<!-- header 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
 	<!-- header 부분을 import 합니다(end) -->
-	<h1>게시판 글쓰기 부분입니다.</h1>
-	<form action="${root}board/read" method="get">
-	
-	</form>
-	<img src="${root}images/ryan.jpg"/>
-	
+
+
+	<!-- 게시판 글쓰기 페이지 메인부분입니다(start) -->
+	<section>
+		<div class="main_holder">
+			<h1>게시판 글쓰기 부분입니다.</h1>
+			<form action="${root}board/read" method="get">
+			</form>
+			<img src="${root}images/ryan.jpg"/>
+		</div>
+	</section>
+	<!-- 게시판 글쓰기 페이지 메인부분입니다(end) -->
+
+
 	<!-- bottom 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/bottom.jsp"/>
 	<!-- bottom 부분을 import 합니다(end) -->

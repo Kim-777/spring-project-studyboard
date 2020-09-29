@@ -19,13 +19,18 @@
 	<!-- header 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
 	<!-- header 부분을 import 합니다(end) -->
-	<h1>회원가입 페이지입니다.</h1>
+	
+	<!-- 회원가입 페이지 메인 부분입니다(start) -->
 	<section>
-		<form action="${root}user/login" method="get">
-		
-		</form>
-		<img src="${root}images/ryan.jpg"/>
+		<h1>회원가입 페이지입니다.</h1>
+		<div class="main_holder">
+			<form action="${root}user/login" method="get">
+			
+			</form>
+			<img src="${root}images/ryan.jpg"/>		
+		</div>
 	</section>
+	<!-- 회원가입 페이지 메인 부분입니다(end) -->
 	
 	<!-- bottom 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/bottom.jsp"/>

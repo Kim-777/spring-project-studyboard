@@ -17,26 +17,43 @@
 </head>
 <body>
 
+	<!-- header 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
-	<h1>인덱스페이지입니다.</h1>
-	<img src="images/ryan.jpg"/>
-	<table>
-		<thead>
-			<tr>
-				<th>글번호</th>
-				<th>제목</th>
-				<th>작성날짜</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>5</td>
-				<td><a href="${root}board/read">제목입니다.</a></td>
-				<td>2020-9-30</td>
-			</tr>
-		</tbody>
-	</table>
-	<a href="${root}board/main">더보기</a>
+	<!-- header 부분을 import 합니다(end) -->
+	
+	
+	<!-- index페이지의 메인 부분입니다(start) -->
+	<section>
+		<div class="main_holder">
+			<h1>인덱스페이지입니다.</h1>
+			<img src="images/ryan.jpg"/>
+			<div class="table_holder">
+				<table>
+					<thead>
+						<tr>
+							<th>글번호</th>
+							<th>제목</th>
+							<th>작성날짜</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>5</td>
+							<td><a href="${root}board/read">제목입니다.</a></td>
+							<td>2020-9-30</td>
+						</tr>
+					</tbody>
+				</table>			
+			</div>
+			<a href="${root}board/main">더보기</a>	
+		</div>
+	</section>
+	<!-- index페이지의 메인 부분입니다(end) -->
+	
+
+	<!-- bottom 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/bottom.jsp"/>
+	<!-- bottom 부분을 import 합니다(end) -->
+	
 </body>
 </html>

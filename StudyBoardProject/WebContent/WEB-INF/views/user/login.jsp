@@ -20,12 +20,20 @@
 	<!-- header 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
 	<!-- header 부분을 import 합니다(end) -->
-	<h1>로그인 페이지입니다.</h1>
-	<form action="${root}main" method="get">
-		<button type="submit">로그인</button>
-		<a href="${root}user/join">회원가입</a>
-	</form>
-	<img src="${root}images/ryan.jpg"/>
+	
+	<!-- 로그인 페이지 메인 부분입니다(start) -->
+	<section>
+		<div class="main_holder">
+			<h1>로그인 페이지입니다.</h1>
+			<form action="${root}main" method="get">
+				<button type="submit">로그인</button>
+				<a href="${root}user/join">회원가입</a>
+			</form>
+			<img src="${root}images/ryan.jpg"/>		
+		</div>
+	</section>
+	<!-- 로그인 페이지 메인부분입니다(end) -->
+	
 	<!-- bottom 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/bottom.jsp"/>
 	<!-- bottom 부분을 import 합니다(end) -->

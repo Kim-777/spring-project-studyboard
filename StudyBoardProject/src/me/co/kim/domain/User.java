@@ -1,5 +1,8 @@
 package me.co.kim.domain;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 // user 도메인을 정의합니다.
 public class User {
 	
@@ -7,16 +10,32 @@ public class User {
 	private int user_idx; 
 	
 	// 유저 이름입니다.
+	//2~6글자만 받을 수 있습니다.
+	@Size(min=2, max=6)
+	//한글만 받을수 있는 정규식입니다.
+	@Pattern(regexp="[가-힣]*")
 	private String user_name;
 	
 	// 유저 아이디 입니다.
+	@Size(min=4, max=20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String user_id;
 	
 	// 유저 패스워드입니다.
+	@Size(min=8, max=20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String user_pw;
 	
-	// 유저 핸드폰 번호입니다. 
-    private String user_phone;
+	// 유저 패스워드 확인 입니다.
+	@Size(min=8, max=20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
+	private String user_pw_chk;
+	
+	private boolean userIdExist;
+	
+	public User() {
+		this.userIdExist = false;
+	}
     
     // getter, setter 메서드를 정의합니다.
 	public int getUser_idx() {
@@ -43,12 +62,23 @@ public class User {
 	public void setUser_pw(String user_pw) {
 		this.user_pw = user_pw;
 	}
-	public String getUser_phone() {
-		return user_phone;
+	
+	public String getUser_pw_chk() {
+		return user_pw_chk;
 	}
-	public void setUser_phone(String user_phone) {
-		this.user_phone = user_phone;
+	public void setUser_pw_chk(String user_pw_chk) {
+		this.user_pw_chk = user_pw_chk;
 	}
-    
+
+	public boolean isUserIdExist() {
+		return userIdExist;
+	}
+
+	public void setUserIdExist(boolean userIdExist) {
+		this.userIdExist = userIdExist;
+	}
+	
+	
+	
     
 }

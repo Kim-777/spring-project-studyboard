@@ -9,12 +9,14 @@
 			 					 http://www.springframework.org/schema/beans/spring-beans.xsd
 			 					 http://www.springframework.org/schema/context
 			 					 http://www.springframework.org/schema/context/spring-context.xsd">
-			 																 
+																																							 
 	<!-- 스캔한 패키지 내부의 클래스 중에 controller 들이 있으면 controller로 등록합니다. -->
 	<annotation-driven/>
 	
 	<!-- 스캔한 빈들이 모여 있는 패키지를 지정합니다. -->
 	<context:component-scan base-package="me.co.kim.controller"/>
+	<context:component-scan base-package="me.co.kim.dao"/>
+	<context:component-scan base-package="me.co.kim.service"/>
 	
 	<!-- Controller의 메서드에서 반환하는 문자열의 앞 뒤에 항상 붙는 정보입니다. -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -31,7 +33,7 @@
 			<beans:value>/WEB-INF/properties/db.properties</beans:value>
 		</beans:property>
 	</beans:bean>
-	
+					
 	<!-- db에 연동할 기본적인 source를 가지고 있는 객체를 지정합니다. -->
 	<beans:bean class="org.apache.commons.dbcp2.BasicDataSource" id="basic_data_source">
 		<beans:property name="driverClassName" value="${db.classname}"/>
@@ -47,6 +49,28 @@
 	
 	<beans:bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSession"/>
+	</beans:bean>
+	
+	<!-- 인터샙터를 정의합니다. -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<beans:bean class="me.co.kim.interceptor.TopMenuInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+	<!--  message 소스를 등록합니다. -->
+	<beans:bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="messageSource">
+		<beans:property name="basenames">
+			<beans:list>
+				<beans:value>/WEB-INF/properties/error_message</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- message 접근을 위한 접근자를 등록합니다. -->
+	<beans:bean class="org.springframework.context.support.MessageSourceAccessor">
+		<beans:constructor-arg ref="messageSource"/>
 	</beans:bean>
 	
 </beans:beans>

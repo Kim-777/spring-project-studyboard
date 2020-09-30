@@ -3,4 +3,13 @@
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 
+	<insert id="addContentInfo" parameterType="me.co.kim.domain.Content">
+		<![CDATA[
+			insert into content_info(content_idx, content_subject, content_text, content_file, 
+			content_writer_idx, content_board_idx, content_date) 
+			values (content_seq.nextval, #{content_subject}, #{content_text}. #{content_file, jdbcType=VARCHAR}, 
+			#{content_writer_idx}, #{content_board_idx}, sysdate)
+		]]>
+	</insert>
+
 </mapper>

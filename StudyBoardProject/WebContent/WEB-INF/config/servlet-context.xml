@@ -9,7 +9,7 @@
 			 					 http://www.springframework.org/schema/beans/spring-beans.xsd
 			 					 http://www.springframework.org/schema/context
 			 					 http://www.springframework.org/schema/context/spring-context.xsd">
-																																					 
+																																						 
 	<!-- 스캔한 패키지 내부의 클래스 중에 controller 들이 있으면 controller로 등록합니다. -->
 	<annotation-driven/>
 	
@@ -29,8 +29,11 @@
 	
 	<!-- properties 파일의 내용을 사용할 수 있게 하는 bean을 지정합니다. -->
 	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<beans:property name="Location">
-			<beans:value>/WEB-INF/properties/db.properties</beans:value>
+		<beans:property name="Locations">
+			<beans:list>
+				<beans:value>/WEB-INF/properties/db.properties</beans:value>
+				<beans:value>/WEB-INF/properties/option.properties</beans:value>			
+			</beans:list>			
 		</beans:property>
 	</beans:bean>
 					
@@ -79,5 +82,9 @@
 	<beans:bean class="org.springframework.context.support.MessageSourceAccessor">
 		<beans:constructor-arg ref="messageSource"/>
 	</beans:bean>
+	
+	<!-- 이미지 저장을 위한 빈을 등록합니다. -->
+	<!-- 필터로 등록하기 위해 id를 새팅합니다. -->
+	<beans:bean class="org.springframework.web.multipart.support.StandardServletMultipartResolver" id="multipartResolver"/>
 	
 </beans:beans>

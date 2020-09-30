@@ -26,14 +26,28 @@
 	<section>
 		<div class="main_holder">
 			<div class="form_holder">
-				<form:form action="${root}board/write_pro" method="post" modelAttribute="writeContent">
-					<form:label path="content_subject">제목</form:label>
-					<form:input path="content_subject"/>
-					<form:errors path= "content_subject" style="color:red"/>
-					<img src="${root}images/ryan.jpg"/>	
+				<h1>게시판 글쓰기 부분입니다.</h1>
+				<form:form action="${root}board/write_pro" method="post" modelAttribute="writeContent" enctype="multipart/form-data">
+					<form:hidden path="content_board_idx"/>
+					<div class="form_group">
+						<form:label path="content_subject">제목</form:label>
+						<form:input path="content_subject"/>
+						<form:errors path= "content_subject" style="color:red"/>				
+					</div>
+					<div class="form_group">
+						<form:label path="content_text">내용</form:label>
+						<form:textarea path="content_text"/>
+						<form:errors path="content_text" style="color:red"/>
+					</div>
+					<div class="form_group">
+						<form:label path="upload_file">첨부 이미지</form:label>
+						<form:input path="upload_file" accept="image/*" type='file'/>
+					</div>
+					<div class="form_group">
+						<form:button>작성하기</form:button>
+					</div>
 				</form:form>		
 			</div>
-			<h1>게시판 글쓰기 부분입니다.</h1>
 		</div>
 	</section>
 	<!-- 게시판 글쓰기 페이지 메인부분입니다(end) -->

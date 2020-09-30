@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="root" value="${pageContext.request.contextPath}/"/><!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -23,9 +24,35 @@
 	<!-- 회원정보 수정 페이지 메인부분입니다(start) -->
 	<section>
 		<div class="main_holder">
-			<h1>회원정보 수정 페이지입니다.</h1>
-			<form action="${root}user/modify" method="get"></form>
-			<img src="${root}images/ryan.jpg"/>
+			<div class="form_holder">
+				<h1>회원정보 수정 페이지입니다.</h1>
+				<form:form action="${root}user/modify_pro" method="post" modelAttribute="modifyUser">
+					<div class="form_group">
+						<form:label path="user_name">이름</form:label>
+						<form:input path="user_name" readonly="true"/>
+					</div>
+					<div class="form_group">
+						<form:label path="user_id">아이디</form:label>
+						<form:input path="user_id" readonly="true"/>
+					</div>
+					<div class="form_group">
+						<form:label path="user_pw">비밀번호</form:label>
+						<form:password path="user_pw"/>
+						<form:errors path="user_pw" style="color:red"/>
+					</div>
+					<div class="form_group">
+						<form:label path="user_pw_chk">비밀번호 확인</form:label>
+						<form:password path="user_pw_chk"/>
+						<form:errors path="user_pw_chk" style="color:red"/>
+					</div>
+					<div class ="form_group">
+						<div class="button_box">
+							<form:button>정보수정</form:button>
+						</div>
+					</div>		
+				</form:form>			
+				<img src="${root}images/ryan.jpg"/>			
+			</div>
 		</div>
 	</section>
 	<!-- 회원정보 수정 페이지 메인부분입니다(end) -->

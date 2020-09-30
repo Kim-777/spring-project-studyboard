@@ -31,10 +31,15 @@ public class User {
 	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String user_pw_chk;
 	
+	// 기존에 존재하는 id인지 확인해주는 변수입니다.
 	private boolean userIdExist;
+	
+	// 로그인한 상태인지 확인해주는 변수입니다.
+	private boolean userLogin;
 	
 	public User() {
 		this.userIdExist = false;
+		this.userLogin = false;
 	}
     
     // getter, setter 메서드를 정의합니다.
@@ -77,8 +82,15 @@ public class User {
 	public void setUserIdExist(boolean userIdExist) {
 		this.userIdExist = userIdExist;
 	}
+
+	public boolean isUserLogin() {
+		return userLogin;
+	}
+
+	public void setUserLogin(boolean userLogin) {
+		this.userLogin = userLogin;
+	}
 	
-	
-	
+
     
 }

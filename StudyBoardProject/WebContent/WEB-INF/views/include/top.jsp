@@ -20,10 +20,18 @@
            <!-- 로그인, 회원가입, 정보수정, 로그아웃 회원 정보에 대한 링크를 가지고 있는 부분입니다(start) -->
            <div class="user_box">
                <ul>
-                   <li class="user_list"><a href="${root}user/login">로그인</a></li>
-                   <li class="user_list"><a href="${root}user/join">회원가입</a></li>
-                   <li class="user_list"><a href="${root}user/modify">정보수정</a></li>
-                   <li class="user_list"><a href="${root}user/logout">로그아웃</a></li>
+				   <c:choose>
+				     <c:when test="${loginUser.userLogin ==true}">
+                  		<li class="user_list"><a href="${root}user/modify">정보수정</a></li>
+                   		<li class="user_list"><a href="${root}user/logout">로그아웃</a></li>
+				    </c:when>
+				   	<c:otherwise>
+               		    <li class="user_list"><a href="${root}user/login">로그인</a></li>
+                        <li class="user_list"><a href="${root}user/join">회원가입</a></li>				   	
+				   	</c:otherwise>
+				   </c:choose>
+
+
                </ul>
            </div>
            <div class="clear_box"></div>

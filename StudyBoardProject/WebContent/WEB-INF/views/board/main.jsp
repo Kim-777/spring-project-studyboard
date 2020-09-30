@@ -48,7 +48,7 @@
 			<img src="${root}images/ryan.jpg"/>
 			
 			<div>
-				<a href="${root}board/write">글쓰기</a>
+				<a href="${root}board/write?board_info_idx=${board_info_idx}">글쓰기</a>
 			</div>		
 		</div>
 	</section>

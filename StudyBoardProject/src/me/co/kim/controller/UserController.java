@@ -1,8 +1,12 @@
 package me.co.kim.controller;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +14,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import me.co.kim.domain.User;
+import me.co.kim.service.UserService;
 import me.co.kim.validator.UserValidator;
 
 
@@ -20,16 +26,49 @@ import me.co.kim.validator.UserValidator;
 @RequestMapping("/user")
 public class UserController {
 	
+	
+	// service 객체를 자동 주입 받습니다.
+	@Autowired
+	private UserService userService;
+	
+	//session 영역에 있는 객체를 자동 주입 받습니다.
+	@Resource(name ="loginUser")
+	@Lazy
+	private User loginUser;
+	
 	// user/login 요청을 받아드리는 메서드입니다.
 	// user 폴더에 있는 login 페이지를 반환해줍니다.
-	@GetMapping("login")
-	public String login() {
+	@GetMapping("/login")
+	public String login(@ModelAttribute("tryLoginUser") User tryLoginUser,
+						@RequestParam(value="fail", defaultValue = "false") boolean fail,
+						Model model) {
+		
+		model.addAttribute("fail", fail);
+		
 		return "user/login";
+	}
+	
+	
+	@PostMapping("/login_pro")
+	public String login_pro(@Valid @ModelAttribute("tryLoginUser") User tryLoginUser, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "user/login";
+		}
+		
+		userService.getLoginUserInfo(tryLoginUser);
+		
+		if(loginUser.isUserLogin() == true) {
+			return "user/login_success";
+		} else {
+			return "user/login_fail";
+		}
+		
 	}
 	
 	//user/join 요청을 받아드리는 메서드입니다.
 	// user/join 페이지를 반환해줍니다.
-	@GetMapping("join")
+	@GetMapping("/join")
 	public String join(@ModelAttribute("joinUser") User joinUser) {
 		return "user/join";
 	}
@@ -44,6 +83,8 @@ public class UserController {
 			return "user/join";
 		}
 		
+		userService.addUserInfo(joinUser);
+		
 		return "user/join_success";
 		
 	}
@@ -51,16 +92,39 @@ public class UserController {
 	
 	// user/modify 요청을 받아드리는 메서드입니다.
 	// user/modify 페이지를 반환해줍니다.
-	@GetMapping("modify")
-	public String modify() {
+	@GetMapping("/modify")
+	public String modify(@ModelAttribute("modifyUser") User modifyUser) {
+		
+		userService.getModifyUserInfo(modifyUser);
+		
 		return "user/modify";
+	}
+	
+	@PostMapping("/modify_pro")
+	public String modify_pro(@Valid @ModelAttribute("modifyUser") User modifyUser, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "user/modify";
+		}
+		
+		userService.modifyUserInfo(modifyUser);
+		
+		return "user/modify_sucess";
 	}
 	
 	// user/logout 요청을 받아드리는 메서드입니다.
 	// user/logout을 반환해줍니다.
-	@GetMapping("logout")
+	@GetMapping("/logout")
 	public String logout() {
+		
+		loginUser.setUserLogin(false);
+		
 		return "user/logout";
+	}
+	
+	@GetMapping("/not_login")
+	public String not_login() {
+		return "user/not_login";
 	}
 	
 	

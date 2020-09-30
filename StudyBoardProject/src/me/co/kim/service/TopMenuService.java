@@ -11,7 +11,6 @@ import me.co.kim.domain.Board;
 @Service
 public class TopMenuService {
 
-	
 	//Board 테이블에 접근하는를 dao 자동 주입 받습니다.
 	@Autowired
 	private TopMenuDao topMenuDao;

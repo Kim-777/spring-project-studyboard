@@ -1,8 +1,10 @@
 package me.co.kim.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 //board에 관련된 모든 요청을 받는 controller입니다.
@@ -12,7 +14,9 @@ public class BoardController {
 	// board/main 요청을 받는 메서드입니다.
 	// board/main.jsp를 리턴합니다.
 	@GetMapping("/main")
-	public String main() {
+	public String main(@RequestParam("board_info_idx") int board_info_idx, Model model) {
+		
+		model.addAttribute("board_info_idx", board_info_idx);
 		return "board/main";
 	}
 	

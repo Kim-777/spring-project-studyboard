@@ -39,10 +39,18 @@
 	<select id="getContentInfo" parameterType="java.lang.Integer" resultType="me.co.kim.domain.Content">
 		<![CDATA[
 			select a2.user_name as content_writer_name, to_char(a1.content_date, 'YYYY-MM-DD') as content_date, 
-			a1.content_subject, a1.content_text, a1.content_file
+			a1.content_subject, a1.content_text, a1.content_file, a1.content_writer_idx 
 			from content_info a1, user_info a2 
 			where a1.content_writer_idx = a2.user_idx
 			and content_idx	= #{content_idx}	
 		]]>
 	</select>
+	
+	<update id="modifyContentInfo" parameterType="me.co.kim.domain.Content">
+		<![CDATA[
+			update content_info 
+			set content_subject = #{content_subject}, content_text = #{content_text}, content_file = #{content_file, jdbcType=VARCHAR} 
+			where content_idx = #{content_idx}
+		]]>
+	</update>
 </mapper>

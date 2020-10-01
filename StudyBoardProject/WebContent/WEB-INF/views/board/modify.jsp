@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="root" value="${pageContext.request.contextPath}/"/>
 <!DOCTYPE html>
 <html lang="ko">
@@ -23,14 +24,43 @@
 	<!-- 게시판 수정하기 메인 부분입니다(start) -->
 	<section>
 		<div class="main_holder">
-			<h1>게시판 수정하기 부분입니다.</h1>
-			<img src="${root}images/ryan.jpg"/>
-			<form action="${root}board/read" method="get">
-				<div>
-					<button type="submit">수정완료</button>
-					<a href="${root}board/read">취소</a>
-				</div>
-			</form>		
+			<div class="form_holder">
+				<h1>게시판 수정하기 부분입니다.</h1>
+				<form:form action="${root}board/modify_pro" method="post" modelAttribute="modifyContent" enctype="multipart/form-data">
+					<form:hidden path="content_idx"/>
+					<form:hidden path="content_board_idx"/>
+					<div class="form_group">
+						<form:label path="content_writer_name">작성자</form:label>
+						<form:input path="content_writer_name" readonly="true"/>
+					</div>
+					<div class="form_group">
+						<form:label path="content_date">작성날짜</form:label>
+						<form:input path="content_date" readonly="true"/>
+					</div>
+					<div class="form_group">
+						<form:label path="content_subject">제목</form:label>
+						<form:input path="content_subject"/>
+						<form:errors path="content_subject" style="color:red"/>
+					</div>
+					<div class="form_group">
+						<form:label path="content_text">내용</form:label>
+						<form:textarea path="content_text" rows="10" style="resize:none"/>
+						<form:errors path="content_text" style="color:red"/>
+					</div>
+					<div class="form_group">
+						<form:label path="upload_file">첨부 이미지</form:label>
+						<c:if test="${modifyContent.content_file !=null}">
+							<img src="${root}/upload/${modifyContent.content_file}" width="10%">
+							<form:hidden path="content_file"/>
+						</c:if>
+						<form:input path="upload_file" type="file" accept="image/*"/>
+					</div>
+					<div class="form_group">
+						<form:button>수정 완료</form:button>
+						<a href="${root}board/read>board_info_idx=${board_info_idx}&content_idx=${content_idx}">취소</a>
+					</div>
+				</form:form>			
+			</div>	
 		</div>
 	</section>
 	<!-- 게시판 수정하기 메인 부분입니다(end) -->

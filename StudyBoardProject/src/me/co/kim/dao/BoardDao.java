@@ -33,4 +33,9 @@ public class BoardDao {
 	public Content getContentInfo(int content_idx) {
 		return sqlSessionTemplate.selectOne("board.getContentInfo", content_idx);
 	}
+	
+	// modifyContent 파라미터의 내용으로 해당 content의 게시글을 수정하는 메서드입니다. 
+	public void modifyContentInfo(Content modifyContent) {
+		sqlSessionTemplate.update("board.modifyContentInfo", modifyContent);
+	}
 }

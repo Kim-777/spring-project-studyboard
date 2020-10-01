@@ -80,4 +80,20 @@ public class BoardService {
 	public Content getContentInfo(int content_idx) {
 		return boardDao.getContentInfo(content_idx);
 	}
+	
+	
+	// 파라미터로 받은 modifyContent를 받아 게시글 수정 하는 메서드입니다.
+	public void modifyContentInfo(Content modifyContent) {
+		
+		// 파라미터의 upload_file를 upload_file 변수에 담습니다. 
+		MultipartFile upload_file = modifyContent.getUpload_file();
+		
+		// 만약 파라미터의 upload_file이 null이 아니라면 saveUploadFile을 호출합니다.
+		if(upload_file.getSize() > 0) {
+			String file_name = saveUploadFile(upload_file);
+			modifyContent.setContent_file(file_name);
+		}
+		
+		boardDao.modifyContentInfo(modifyContent);
+	}
 }

@@ -67,6 +67,11 @@
 			<exclude-mapping path="/board/main"/>
 			<beans:bean class="me.co.kim.interceptor.CheckLoginInterceptor"/>
 		</interceptor>
+		<interceptor>
+			<mapping path="/board/modify"/>
+			<mapping path="/board/delete"/>
+			<beans:bean class="me.co.kim.interceptor.CheckWriterInterceptor"/>
+		</interceptor>
 	</interceptors>
 	
 	<!--  message 소스를 등록합니다. -->

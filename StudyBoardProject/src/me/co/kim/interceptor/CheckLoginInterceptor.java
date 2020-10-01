@@ -1,9 +1,9 @@
 package me.co.kim.interceptor;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -11,16 +11,12 @@ import me.co.kim.domain.User;
 
 public class CheckLoginInterceptor implements HandlerInterceptor {
 
+	// loginUser를 자동 주입 받습니다.
+	@Resource(name = "loginUser")
+	@Lazy
 	private User loginUser;
 	
-	// loginUser를 자동 주입 받습니다.
-	@Autowired
-	@Lazy
-	public CheckLoginInterceptor(User loginUser) {
-		// TODO Auto-generated constructor stub
-		this.loginUser = loginUser;
-	}
-	
+
 	
 	//요청된 메서드를 실행 전에 로그인이 되어 있는지 확인하기 위해 먼저 실행되는 interceptor의 prehandle 메서드입니다.
 	@Override

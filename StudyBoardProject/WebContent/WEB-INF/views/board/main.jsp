@@ -24,7 +24,7 @@
 	<!-- 게시판 메인 페이지의 메인 부분입니다(start) -->
 	<section>
 		<div class="main_holder">
-			<h1>게시판 메인 부분입니다.</h1>
+			<h1>${boardInfoName}</h1>
 			<div class="table_holder">
 				<table>
 					<thead>
@@ -36,12 +36,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>10</td>
-							<td><a href="${root}board/read">글제목</a></td>
-							<td>홍길동</td>
-							<td>2020-9-30</td>
-						</tr>
+						<c:forEach var="obj" items="${contentList}">
+							<tr>
+								<td>${obj.content_idx}</td>
+								<td><a href="${root}board/read?board_info_idx=${board_info_idx}&content_idx=${obj.content_idx}">${obj.content_subject}</a></td>
+								<td>${obj.content_writer_name}</td>
+								<td>${obj.content_date}</td>
+							</tr>						
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>

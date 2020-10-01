@@ -25,12 +25,33 @@
 	<section>
 		<div class="main_holder">
 			<h1>게시판 글읽기 부분입니다.</h1>
+			<div class="read_box">
+				<label for="board_writer_name">작성자</label>
+				<input type="text" id="board_writer_name" name="board_writer_name" value="${readContent.content_writer_name}" disabled="disabled"/>
+			</div>
+			<div class="read_box">
+				<label for="board_date">작성 날짜</label>
+				<input type="text" id="board_date" name="board_writer_name" value="${readContent.content_date}" disabled="disabled"/>
+			</div>
+			<div class="read_box">
+				<label for="board_subject">제목</label>
+				<input type="text" id="board_subject" name="board_subject" value="${readContent.content_subject}" disabled="disabled"/>
+			</div>
+			<div class="read_box">
+				<label for="board_content">내용</label>
+				<textarea id="board_content" name="board_content" rows="10" style="resize:none" disabled="disabled">${readContent.content_text}</textarea>
+			</div>
+			<c:if test="${readContent.content_file != null }">
+				<div class="read_box">
+					<label for="board_file">첨부이미지</label>
+					<img src="${root}upload/${readContent.content_file}" width="10%"/>
+				</div>			
+			</c:if>
 			<div class="button_boxs_holder">
-				<a href="${root}board/main">목록보기</a>
+				<a href="${root}board/main?board_info_idx=${board_info_idx}">목록보기</a>
 				<a href="${root}board/modify">수정하기</a>
 				<a href="${root}board/delete">삭제하기</a>
 			</div>
-			<img src="${root}images/ryan.jpg"/>		
 		</div>
 	</section>	
 	<!-- 게시판 글읽기 메인 부분입니다(end) -->

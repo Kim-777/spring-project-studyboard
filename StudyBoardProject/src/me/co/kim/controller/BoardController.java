@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import me.co.kim.domain.Content;
+import me.co.kim.domain.Page;
 import me.co.kim.domain.User;
 import me.co.kim.service.BoardService;
 
@@ -37,7 +38,9 @@ public class BoardController {
 	// board/main 요청을 받는 메서드입니다.
 	// board/main.jsp를 리턴합니다.
 	@GetMapping("/main")
-	public String main(@RequestParam("board_info_idx") int board_info_idx, Model model) {
+	public String main(@RequestParam("board_info_idx") int board_info_idx,
+					   @RequestParam(value="page", defaultValue = "1") int page, 
+					   Model model) {
 		
 		model.addAttribute("board_info_idx", board_info_idx);
 		
@@ -48,8 +51,12 @@ public class BoardController {
 		
 		
 		// service 객체를 통해 가져온 content의 리스트를 변수에 담아줍니다.
-		List<Content> contentList = boardService.getContentList(board_info_idx);
+		List<Content> contentList = boardService.getContentList(board_info_idx, page);
 		model.addAttribute("contentList", contentList);
+		
+		Page currentpage = boardService.getContentCnt(board_info_idx, page);
+		model.addAttribute("page", currentpage);
+		
 		return "board/main";
 	}
 	

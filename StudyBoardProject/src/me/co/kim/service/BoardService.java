@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import me.co.kim.dao.BoardDao;
 import me.co.kim.domain.Content;
+import me.co.kim.domain.Page;
 import me.co.kim.domain.User;
 
 // board에 관련된 service 객체입니다.
@@ -22,6 +24,12 @@ public class BoardService {
 	//properties로 저장한 절대 경로는 사용합니다.
 	@Value("${path.upload}")
 	private String path_upload;
+	
+	@Value("${page.listcnt}")
+	private int page_listcnt;
+	
+	@Value("${page.paginationcnt}")
+	private int page_paginationcnt;
 	
 	
 	//session 영역에 있는 loginUser 객체를 주입 받습니다.
@@ -71,14 +79,20 @@ public class BoardService {
 	
 	
 	// dao에 파라미터 값을 전달해서 데이터베이스에 담긴 content를 list에 담아서 controller에 전달하는 메서드입니다.
-	public List<Content> getContentList(int board_info_idx) {
-		return boardDao.getContentList(board_info_idx);
+	public List<Content> getContentList(int board_info_idx,  int page) {
+		
+		int start = (page - 1) * page_listcnt;
+		RowBounds rowBounds = new RowBounds(start, page_listcnt);
+		
+		return boardDao.getContentList(board_info_idx, rowBounds);
 	}
 	
 	
 	// 파라미터로 받은 content_idx를 boarDao에게 전달해 주는 메서드입니다.
 	public Content getContentInfo(int content_idx) {
 		return boardDao.getContentInfo(content_idx);
+		
+		
 	}
 	
 	
@@ -100,5 +114,15 @@ public class BoardService {
 	// 콘텐츠의 내용을 제거하는 메서드입니다.
 	public void deleteContentInfo(int content_idx) {
 		boardDao.deleteContentInfo(content_idx);
+	}
+	
+	// page 정보를 담은 객체를 반환해줍니다.
+	// page 생성자를 이용해서 페이지 구성에 필요한 정보를 담아 보냅니다.
+	public Page getContentCnt(int content_board_idx, int currentPage) {
+		
+		int content_cnt = boardDao.getContentCnt(content_board_idx);
+		Page page = new Page(content_cnt, currentPage, page_listcnt, page_paginationcnt);
+		
+		return page;
 	}
 }

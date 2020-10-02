@@ -59,4 +59,11 @@
 			delete from content_info where content_idx = #{content_idx}
 		]]>
 	</delete>
+	
+	<select id="getContentCnt" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		<![CDATA[
+			select count(*) from content_info 
+			where content_board_idx = #{content_board_idx}
+		]]>
+	</select>
 </mapper>

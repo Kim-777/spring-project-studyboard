@@ -97,3 +97,9 @@ div#footerWrap {
     text-align:center;
     margin: 0 auto;
 }
+
+/*  임시 수정해야함    */
+
+.page_item {
+	float : left;
+}

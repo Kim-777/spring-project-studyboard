@@ -96,4 +96,9 @@ public class BoardService {
 		
 		boardDao.modifyContentInfo(modifyContent);
 	}
+	
+	// 콘텐츠의 내용을 제거하는 메서드입니다.
+	public void deleteContentInfo(int content_idx) {
+		boardDao.deleteContentInfo(content_idx);
+	}
 }

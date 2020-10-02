@@ -38,4 +38,10 @@ public class BoardDao {
 	public void modifyContentInfo(Content modifyContent) {
 		sqlSessionTemplate.update("board.modifyContentInfo", modifyContent);
 	}
+	
+	public void deleteContentInfo(int content_idx) {
+		
+		sqlSessionTemplate.delete("board.deleteContentInfo", content_idx);
+		
+	}
 }

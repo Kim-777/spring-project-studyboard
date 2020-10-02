@@ -143,7 +143,13 @@ public class BoardController {
 	// board/delete 요청을 받는 메서드입니다.
 	// board/delete.jsp를 리턴합니다.
 	@GetMapping("/delete")
-	public String delete() {
+	public String delete(@RequestParam("board_info_idx") int board_info_idx,
+						 @RequestParam("content_idx") int content_idx, Model model) {
+		
+		boardService.deleteContentInfo(content_idx);
+		
+		model.addAttribute("board_info_idx", board_info_idx);
+		
 		return "board/delete";
 	}
 	
@@ -151,5 +157,6 @@ public class BoardController {
 	public String not_writer() {
 		return "board/not_writer";
 	}
+	
 	
 }

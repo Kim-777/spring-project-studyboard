@@ -103,3 +103,11 @@ div#footerWrap {
 .page_item {
 	float : left;
 }
+
+#nowPage {
+	background : yellow;
+}
+
+.disable_check {
+	background : gray;
+}

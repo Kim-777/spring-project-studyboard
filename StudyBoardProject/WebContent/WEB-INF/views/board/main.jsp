@@ -49,17 +49,47 @@
 			</div>
 			<div class="page_bottom_box">
 				<ul class="page_button_list">
-					<li class="page_item">
-						<a href="#">이전</a>
-					</li>
+					<c:choose>
+						<c:when test="${page.prevPage <= 0}">
+							<li class="page_item disable_check">
+								<a href="#">이전</a>
+							</li>							
+						</c:when>
+						<c:otherwise>
+							<li class="page_item">
+								<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${page.prevPage}">이전</a>
+							</li>						
+						</c:otherwise>
+					</c:choose>
+					
+					
 					<c:forEach var="idx" begin="${page.min}" end="${page.max}">
-					<li class="page_item">
-						<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${idx}">${idx}</a>
-					</li>
+					<c:choose>
+						<c:when test="${idx == page.currentPage}">
+							<li class="page_item" id="nowPage">
+								<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${idx}">${idx}</a>
+							</li>
+						</c:when>
+						<c:otherwise>
+							<li class="page_item">
+								<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${idx}">${idx}</a>
+							</li>
+						</c:otherwise>
+					</c:choose>
 					</c:forEach>
-					<li class="page_item">
-						<a href="#">다음</a>
-					</li>					
+					
+					<c:choose>
+							<c:when test="${page.max >= page.pageCnt}">
+								<li class="page_item disable_check">
+									<a href="#">다음</a>
+								</li>							
+							</c:when>
+							<c:otherwise>
+								<li class="page_item">
+									<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${page.nextPage}">다음</a>
+								</li>					
+							</c:otherwise>
+						</c:choose>									
 				</ul>
 			</div>
 			

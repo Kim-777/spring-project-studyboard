@@ -48,9 +48,9 @@
 				</div>			
 			</c:if>
 			<div class="button_boxs_holder">
-				<a href="${root}board/main?board_info_idx=${board_info_idx}">목록보기</a>
+				<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${page}">목록보기</a>
 				<c:if test="${loginUser.user_idx == readContent.content_writer_idx}">
-					<a href="${root}board/modify?board_info_idx=${board_info_idx}&content_idx=${content_idx}">수정하기</a>
+					<a href="${root}board/modify?board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}">수정하기</a>
 					<a href="${root}board/delete?board_info_idx=${board_info_idx}&content_idx=${content_idx}">삭제하기</a>				
 				</c:if>
 			</div>

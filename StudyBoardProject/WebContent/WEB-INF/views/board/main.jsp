@@ -39,7 +39,7 @@
 						<c:forEach var="obj" items="${contentList}">
 							<tr>
 								<td>${obj.content_idx}</td>
-								<td><a href="${root}board/read?board_info_idx=${board_info_idx}&content_idx=${obj.content_idx}">${obj.content_subject}</a></td>
+								<td><a href="${root}board/read?board_info_idx=${board_info_idx}&content_idx=${obj.content_idx}&page=${page}">${obj.content_subject}</a></td>
 								<td>${obj.content_writer_name}</td>
 								<td>${obj.content_date}</td>
 							</tr>						
@@ -50,22 +50,22 @@
 			<div class="page_bottom_box">
 				<ul class="page_button_list">
 					<c:choose>
-						<c:when test="${page.prevPage <= 0}">
+						<c:when test="${currentpage.prevPage <= 0}">
 							<li class="page_item disable_check">
 								<a href="#">이전</a>
 							</li>							
 						</c:when>
 						<c:otherwise>
 							<li class="page_item">
-								<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${page.prevPage}">이전</a>
+								<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${currentpage.prevPage}">이전</a>
 							</li>						
 						</c:otherwise>
 					</c:choose>
 					
 					
-					<c:forEach var="idx" begin="${page.min}" end="${page.max}">
+					<c:forEach var="idx" begin="${currentpage.min}" end="${currentpage.max}">
 					<c:choose>
-						<c:when test="${idx == page.currentPage}">
+						<c:when test="${idx == currentpage.currentPage}">
 							<li class="page_item" id="nowPage">
 								<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${idx}">${idx}</a>
 							</li>
@@ -79,14 +79,14 @@
 					</c:forEach>
 					
 					<c:choose>
-							<c:when test="${page.max >= page.pageCnt}">
+							<c:when test="${currentpage.max >= currentpage.pageCnt}">
 								<li class="page_item disable_check">
 									<a href="#">다음</a>
 								</li>							
 							</c:when>
 							<c:otherwise>
 								<li class="page_item">
-									<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${page.nextPage}">다음</a>
+									<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${currentpage.nextPage}">다음</a>
 								</li>					
 							</c:otherwise>
 						</c:choose>									
@@ -94,7 +94,7 @@
 			</div>
 			
 			<div>
-				<a href="${root}board/write?board_info_idx=${board_info_idx}">글쓰기</a>
+				<a href="${root}board/write?board_info_idx=${board_info_idx}&page=${page}">글쓰기</a>
 			</div>		
 		</div>
 	</section>

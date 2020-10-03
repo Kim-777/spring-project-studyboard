@@ -55,7 +55,9 @@ public class BoardController {
 		model.addAttribute("contentList", contentList);
 		
 		Page currentpage = boardService.getContentCnt(board_info_idx, page);
-		model.addAttribute("page", currentpage);
+		model.addAttribute("currentpage", currentpage);
+		
+		model.addAttribute("page", page);
 		
 		return "board/main";
 	}
@@ -64,7 +66,9 @@ public class BoardController {
 	// board/read.jsp를 리턴합니다.
 	@GetMapping("/read")
 	public String read(@RequestParam("board_info_idx") int board_info_idx,
-					   @RequestParam("content_idx") int content_idx, Model model) {
+					   @RequestParam("content_idx") int content_idx, 
+					   @RequestParam("page") int page, 
+					   Model model) {
 		
 		model.addAttribute("board_info_idx", board_info_idx);
 		model.addAttribute("content_idx", content_idx);
@@ -76,6 +80,8 @@ public class BoardController {
 		// 로그인된 객체를 model에 담아 줍니다.
 		model.addAttribute("loginUser", loginUser);
 		
+		model.addAttribute("page", page);
+		
 		return "board/read";
 	}
 	
@@ -83,9 +89,13 @@ public class BoardController {
 	// board/write.jsp를 리턴합니다.
 	@GetMapping("/write")
 	public String write(@ModelAttribute("writeContent") Content writeContent,
-						@RequestParam("board_info_idx") int board_info_idx) {
+						@RequestParam("board_info_idx") int board_info_idx,
+						@RequestParam("page") int page,
+						Model model) {
 		
 		writeContent.setContent_board_idx(board_info_idx);
+		
+		model.addAttribute("page", page);
 		
 		return "board/write";
 	} 
@@ -93,7 +103,10 @@ public class BoardController {
 	// board/write_pro 요청을 받는 메서드입니다.
 	// 유효성 검사를 하는 파라미터가 통과하면 board/write_pro.jsp 를 , 통과 하지 못하면 board/write.jsp를 리턴합니다.
 	@PostMapping("/write_pro")
-	public String write_pro(@Valid @ModelAttribute("writeContent") Content writeContent, BindingResult result) {
+	public String write_pro(@Valid @ModelAttribute("writeContent") Content writeContent, BindingResult result,
+							@RequestParam("page") int page, Model model) {
+		
+		model.addAttribute("page", page);
 		
 		if(result.hasErrors()) {
 			return "board/write";
@@ -111,6 +124,7 @@ public class BoardController {
 	public String modify(@RequestParam("board_info_idx") int board_info_idx,
 						 @RequestParam("content_idx") int content_idx,
 						 @ModelAttribute("modifyContent") Content modifyContent, 
+						 @RequestParam("page") int page, 
 						 Model model) {
 		
 		model.addAttribute("board_info_idx", board_info_idx);
@@ -128,13 +142,19 @@ public class BoardController {
 		modifyContent.setContent_board_idx(board_info_idx);
 		modifyContent.setContent_idx(content_idx);
 		
+		model.addAttribute("page", page);
+		
 		return "board/modify";
 	}
 	
 	//게시글 수정 요청을 받는 메서드입니다.
 	@PostMapping("/modify_pro")
-	public String modify_pro(@Valid @ModelAttribute("modifyContent") Content modifyContent,
+	public String modify_pro(@Valid @ModelAttribute("modifyContent") Content modifyContent, 
+							 @RequestParam("page") int page,
+							 Model model, 
 							 BindingResult result) {
+		
+		model.addAttribute("page", page);
 		
 		if(result.hasErrors()) {
 			return "board/modify";

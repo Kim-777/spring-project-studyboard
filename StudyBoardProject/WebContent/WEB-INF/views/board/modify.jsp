@@ -29,6 +29,7 @@
 				<form:form action="${root}board/modify_pro" method="post" modelAttribute="modifyContent" enctype="multipart/form-data">
 					<form:hidden path="content_idx"/>
 					<form:hidden path="content_board_idx"/>
+					<input type="hidden" name="page" value="${page}">
 					<div class="form_group">
 						<form:label path="content_writer_name">작성자</form:label>
 						<form:input path="content_writer_name" readonly="true"/>
@@ -57,7 +58,7 @@
 					</div>
 					<div class="form_group">
 						<form:button>수정 완료</form:button>
-						<a href="${root}board/read>board_info_idx=${board_info_idx}&content_idx=${content_idx}">취소</a>
+						<a href="${root}board/read>board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}">취소</a>
 					</div>
 				</form:form>			
 			</div>	

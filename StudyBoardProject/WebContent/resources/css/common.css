@@ -111,3 +111,8 @@ div#footerWrap {
 .disable_check {
 	background : gray;
 }
+
+.main_table_holder {
+	float: left;
+	margin : 30px 30px;
+}

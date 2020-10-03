@@ -27,25 +27,33 @@
 		<div class="main_holder">
 			<h1>인덱스페이지입니다.</h1>
 			<img src="images/ryan.jpg"/>
-			<div class="table_holder">
-				<table>
-					<thead>
-						<tr>
-							<th>글번호</th>
-							<th>제목</th>
-							<th>작성날짜</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>5</td>
-							<td><a href="${root}board/read">제목입니다.</a></td>
-							<td>2020-9-30</td>
-						</tr>
-					</tbody>
-				</table>			
+			<div class="main_box_list">
+				<c:forEach var="sub_list" items="${list}" varStatus="idx">
+					<div class="main_table_holder">
+						<h4>${board_list[idx.index].board_info_name}</h4>
+						<table>
+							<thead>
+								<tr>
+									<th>글번호</th>
+									<th>제목</th>
+									<th>작성날짜</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="obj" items="${sub_list}">
+									<tr>
+										<td>${obj.content_idx}</td>
+										<td><a href="${root}board/read?board_info_idx=${board_list[idx.index].board_info_idx}&content_idx=${obj.content_idx}&page=1">${obj.content_subject}</a></td>
+										<td>${obj.content_date}</td>
+									</tr>								
+								</c:forEach>
+							</tbody>
+						</table>	
+						<a href="${root}board/main?board_info_idx=${board_list[idx.index].board_info_idx}">더보기</a>			
+					</div>				
+				</c:forEach>	
 			</div>
-			<a href="${root}board/main">더보기</a>	
+			<div class= "clear_box"></div>	
 		</div>
 	</section>
 	<!-- index페이지의 메인 부분입니다(end) -->

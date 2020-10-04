@@ -11,15 +11,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  css를 사용하기 위한 링크입니다. -->
     <link rel="stylesheet" href="${root}css/common.css">
+    <link rel="Stylesheet" href="${root}css/board/modify.css">
     <!-- ajax를 사용하기 위한 script입니다. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <title>게시판 메인</title>
+    <!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
+    <title>게시판 수정페이지</title>
 </head>
 <body>
 	<!-- header 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
 	<!-- header 부분을 import 합니다(end) -->
+	
+	<div class="check">check</div>
 	
 	<!-- 게시판 수정하기 메인 부분입니다(start) -->
 	<section>

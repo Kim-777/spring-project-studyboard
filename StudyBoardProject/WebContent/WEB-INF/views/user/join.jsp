@@ -11,9 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  css를 사용하기 위한 링크입니다. -->
     <link rel="stylesheet" href="${root}css/common.css">
+    <link rel="stylesheet" href="${root}css/user/join.css">
     <!-- ajax를 사용하기 위한 script입니다. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
     <title>회원가입 페이지</title>
     <!-- 아이디를 중복 확인하는 코드입니다. ajax를 이용해 비동기를 이용합니다. -->
     <script>

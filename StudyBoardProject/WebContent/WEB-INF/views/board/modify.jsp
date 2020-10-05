@@ -17,6 +17,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
+    <!-- 글자체를 임포트합니다. -->
+	<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">	
     <title>게시판 수정페이지</title>
 </head>
 <body>
@@ -28,7 +30,7 @@
 	
 	<!-- 게시판 수정하기 메인 부분입니다(start) -->
 	<section>
-		<div class="main_holder">
+		<div id="mainHolder">
 			<div class="form_holder">
 				<h1>게시판 수정하기 부분입니다.</h1>
 				<form:form action="${root}board/modify_pro" method="post" modelAttribute="modifyContent" enctype="multipart/form-data">

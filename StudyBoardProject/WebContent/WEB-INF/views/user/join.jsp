@@ -17,6 +17,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
+    <!-- 글자체를 임포트합니다. -->
+	<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">	
     <title>회원가입 페이지</title>
     <!-- 아이디를 중복 확인하는 코드입니다. ajax를 이용해 비동기를 이용합니다. -->
     <script>
@@ -61,7 +63,7 @@
 	<!-- 회원가입 페이지 메인 부분입니다(start) -->
 	<section>
 		<h1>회원가입 페이지입니다.</h1>
-		<div class="main_holder">
+		<div id="mainHolder">
 			<form:form action="${root}user/join_pro" method="post" modelAttribute="joinUser">
 			<form:hidden path="userIdExist"/>
 				<div class="form_group">

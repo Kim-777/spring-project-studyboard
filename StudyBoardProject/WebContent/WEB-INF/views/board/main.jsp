@@ -16,40 +16,46 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
+    <!-- 글자체를 임포트합니다. -->
+	<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">	
     <title>게시판 메인</title>
 </head>
 <body>
 	<!-- header 부분을 import 합니다(start) -->
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
 	<!-- header 부분을 import 합니다(end) -->
-
-	<div class="check">check</div>
+	
 	<!-- 게시판 메인 페이지의 메인 부분입니다(start) -->
 	<section>
-		<div class="main_holder">
-			<h1>${boardInfoName}</h1>
+		<div id="mainHolder">
+			<h1 class="table_name">${boardInfoName}</h1>
 			<div class="table_holder">
-				<table>
+				<table class="board_main_table">
 					<thead>
 						<tr>
-							<th>글번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성날짜</th>
+							<th class="board_table_index">글번호</th>
+							<th class="board_table_subject">제목</th>
+							<th class="board_table_writer">작성자</th>
+							<th class="board_table_date">작성날짜</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="obj" items="${contentList}">
 							<tr>
-								<td>${obj.content_idx}</td>
-								<td><a href="${root}board/read?board_info_idx=${board_info_idx}&content_idx=${obj.content_idx}&page=${page}">${obj.content_subject}</a></td>
-								<td>${obj.content_writer_name}</td>
-								<td>${obj.content_date}</td>
+								<td class="board_table_index">${obj.content_idx}</td>
+								<td class="board_table_subject"><a href="${root}board/read?board_info_idx=${board_info_idx}&content_idx=${obj.content_idx}&page=${page}">${obj.content_subject}</a></td>
+								<td class="board_table_writer">${obj.content_writer_name}</td>
+								<td class="board_table_date">${obj.content_date}</td>
 							</tr>						
 						</c:forEach>
 					</tbody>
 				</table>
 			</div>
+
+			<div class="go_writer_button">
+				<a href="${root}board/write?board_info_idx=${board_info_idx}&page=${page}">글쓰기</a>
+			</div>					
+			
 			<div class="page_bottom_box">
 				<ul class="page_button_list">
 					<c:choose>
@@ -80,7 +86,7 @@
 						</c:otherwise>
 					</c:choose>
 					</c:forEach>
-					
+				
 					<c:choose>
 							<c:when test="${currentpage.max >= currentpage.pageCnt}">
 								<li class="page_item disable_check">
@@ -95,10 +101,7 @@
 						</c:choose>									
 				</ul>
 			</div>
-			
-			<div>
-				<a href="${root}board/write?board_info_idx=${board_info_idx}&page=${page}">글쓰기</a>
-			</div>		
+
 		</div>
 	</section>
 	<!-- 게시판 메인 페이지의 메인 부분입니다(end) -->

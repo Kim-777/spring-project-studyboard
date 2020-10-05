@@ -16,6 +16,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
+    <!-- 글자체를 임포트합니다. -->
+	<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">	
     <title>게시판 글보기</title>
 </head>
 <body>
@@ -26,7 +28,7 @@
 
 	<!-- 게시판 글읽기 메인 부분입니다(start) -->
 	<section>
-		<div class="main_holder">
+		<div id="mainHolder">
 			<h1>게시판 글읽기 부분입니다.</h1>
 			<div class="read_box">
 				<label for="board_writer_name">작성자</label>

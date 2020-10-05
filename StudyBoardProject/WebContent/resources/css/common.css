@@ -1,11 +1,10 @@
 @charset "UTF-8";
 
-
 /* ------------------ 전체적인 틀 영역입니다 ------------------  */
-* {padding:0; margin:0;}
+* {padding:0; margin:0; font-family: 'Sunflower', sans-serif;}
 ol, ul, li {list-style-type: none;}
 a {text-decoration: none; color:black; outline:none;}
-body {background-color: white; font-family: 'Nanum Gothic', sans-serif;}
+body {background-color: white;}
 img {vertical-align:top; border:0;}
 fieldset {border:none;}
 button {border: none;}
@@ -30,19 +29,9 @@ form {
 header {
     height:auto;
     border-bottom:1px solid #e8e8e8;
-    background-color:white;
 }
 
-.top_box {
-    overflow:hidden;
-    height: 100px;
-}
-
-.go_main {
-    float:left;
-    margin: 40px 30px;
-}
-
+/* header 영역에 모든 아이템들을 감싸는 wrapper 입니다. */
 div#headerWrap {
     width:1100px;
     height:100%;
@@ -51,38 +40,71 @@ div#headerWrap {
     margin: 0 auto;
 }
 
+/* header 위쪽 영역입니다. */
+.top_box {
+    overflow: hidden;
+    height: auto;
+    padding-bottom: 40px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+/* header 로고 영역입니다. */
+.go_main {
+    float:left;
+    margin: 40px 30px;
+}
+
+/* 로고 영역 안에 text들을 묵어주는 class입니다. */
+.main_item {
+    font-size : 20px;
+}
+
+
+/* nav태그들을 감싸고 있는 영역입니다. */
 .top_menu_box {
 
     float: left;
     margin: 30px;
 }
 
+/* html, css, javascript 등, 프로젝트의 nav 리스트 영역입니다. */
 .menu_list {
     float: left;
     margin: 10px 10px;
+    padding-right: 15px;
     font-size : 20px;
 }
 
-.main_item {
-    font-size : 20px;
+/* 리스트가 hover 됐을 경우 font에 변화를 줍니다. */
+.menu_list>a:hover {
+    color : blue;
+    font-weight: 700;
 }
 
+/* 로그인, 회원가입, 로그아웃, 정보수정 등 유저에 대한 내용을 담고 있는 items 들의 영역입니다. */
 .user_box {
-    height: 100px;
+    height: 65px;
 }
+
 
 .user_box > ul.user_box_ul {
     position: absolute;
     right: 0px; 
 }
 
+/* 각각의 리스트들 입니다. */
 .user_list {
-    float:right;
-    margin: 10px;
-    padding :10px;
-    background-color: rgb(255, 254, 199);
+    float:left;
+    margin: 10px 10px;
+    padding :5px;
     font-size: 14px;
-    font-weight:bold;
+}
+
+/* 리스트가 hover 됐을 경우 font에 변화를 줍니다. */
+.user_list>a:hover {
+    color : blue;
+    font-weight: 700;
 }
 
 /* ------------------  main section 공통 영역입니다. ------------------  */
@@ -95,36 +117,43 @@ div#headerWrap {
     margin: 0 auto;
 }
 
-/* ------------------  footer 영역입니다. ------------------  */
-
-footer {
-	height:auto;
-    border-top:1px solid #e8e8e8;
-}
-
-div#footerWrap {
-	width:1100px;
+#mainHolder {
+    width:1100px;
     height:100%;
     position:relative;
     text-align:center;
     margin: 0 auto;
 }
 
-/*  임시 수정해야함    */
+/* ------------------  footer 영역입니다. ------------------  */
 
-.page_item {
-	float : left;
+footer {
+    height: 100%;
+    border-top:1px solid #e8e8e8;
 }
 
-#nowPage {
-	background : yellow;
+/* footer 영역의 items 들을 묶어주는 box입니다. */
+div#footerWrap {
+    width:1100px;
+    height:100%;
+    position:relative;
+    padding-left : 70px;
+    margin: 0 auto;
 }
 
-.disable_check {
-	background : gray;
+/* 작성자 정보를 꾸며줍니다. */
+#authorInfo {
+    font-size : 15px;
+    margin: 15px 0;
 }
 
-.main_table_holder {
-	float: left;
-	margin : 30px 30px;
+/* 사용한 기술들을 모아두는 박스입니다. */
+.skill_logo {
+    height : 30px;
+    margin: 15px 0;
+}
+
+/* 오라클 이미지 크기가 다른 것들에 비해 작아 padding 값을 5 주었습니다. */
+.oracle_logo {
+    padding-top:5px;
 }

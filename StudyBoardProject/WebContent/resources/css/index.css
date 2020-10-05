@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/* index 페이지에 있는 section 영역의 모든 아이템을 담습니다. */
+#mainHolder {
+    width:1100px;
+    height:100%;
+    position:relative;
+    text-align:center;
+    margin: 0 auto;
+}
+
+/* 가운데 리스트 모음들을 꾸며줍니다. */
+.main_box_list {
+    padding: 20px 0;
+}
+
+/* 테이블들을 잡아주는 holder입니다. */
+.main_table_holder {
+    width: 300px;
+    height: 260px;
+    overflow: hidden;
+    float: left;
+    margin: 40px 33px;
+}
+
+
+
+.main_table_title {
+    box-sizing: border-box;
+    border-top : 1px solid gray;
+    border-bottom : 1px solid gray;
+    padding : 5px 0;
+}
+
+/* 테이블에 제목이 들어가는 곳입니다.*/
+.main_text_subject {
+    width: 164px;
+    overflow-y: hidden;
+}
+
+/*제목에 hover될 경우 글짜 색을 red로 변환시킵니다.*/
+td.main_text_subject > a:hover {
+	color : red;
+}
+
+/* 더보기 입니다. */
+.show_more {
+    box-sizing: border-box;
+    border-top : 1px solid gray;
+    border-bottom : 1px solid gray;  
+    padding : 5px 0;
+}
+
+/*더 보기 링크에 hover될 경우 글짜 색을 red로 변환시킵니다.*/
+.show_more > a:hover {
+	color : red;
+}
+/* index 테이블들의 row의 크기를 지정해줍니다. */
+tr{
+    height:30px;
+}

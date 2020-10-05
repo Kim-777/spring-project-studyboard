@@ -1,5 +1,128 @@
 @charset "UTF-8";
 
-.check {
-	background: yellow;
+/*  -------------------- 게시판 main 영역입니다. --------------------  */
+/* 게시판 테이블의 name(ex html, css, javascript)입니다. */
+.table_name {
+ padding : 50px;
 }
+
+/* 테이블에 내용을 담는 박스입니다. */
+.board_main_table {
+    margin: auto;
+    font-size : 16px;
+    padding :20px;
+    border-collapse: collapse;
+}
+
+/* 테이블 header 영역입니다. */
+thead {
+    border-top : 1px solid gray;
+    border-bottom : 1px solid gray;
+}
+
+/* 테이블 row 영역입니다. */
+tr {
+    height:40px;
+}
+
+/* row 영역에 효과를 주는 영역입니다. */
+tr:hover {
+    background-color: rgb(225, 227, 255);
+}
+
+/* 게시판(테이블)의 제목 영역입니다. */
+.board_table_subject {
+    width : 300px;
+}
+
+/* 게시판 제목에 hover가 되었을 경우 입니다. */
+.board_table_subject > a:hover {
+    color:blue;
+    font-weight: 700;
+}
+
+/* 게시판 글쓴이 입니다. */
+.board_table_writer {
+    width : 300px;
+}
+
+/* 게시판에 글이 쓰여진 날짜입니다. */
+.board_table_date {
+    width : 300px;
+}
+
+
+/* -------------------- 더보기 button 영역입니다.  --------------------  */
+
+/* 더보기 영역의 display를 잡아줍니다. */
+.go_writer_button {
+    padding-top: 15px;
+    position: relative;
+    height: 50px;
+}
+
+.go_writer_button > a {
+    position: absolute;
+    right: 70px;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 10px;
+    border : 1px solid rgb(31, 29, 29)
+}
+
+.go_writer_button > a:hover {
+
+    background-color:rgb(223, 247, 255);
+    color: blue;
+}
+
+/* -------------------- pagination 영역입니다.  --------------------  */
+
+.page_bottom_box {
+    padding : 30px 70px 70px;
+}
+
+.page_button_list {
+    overflow: hidden;
+    margin: auto;
+    width: 744px;
+    padding: 5px;
+}
+
+
+/* 페이지 button의 아이템들 영역입니다(pagination 버튼) */
+.page_item {
+    float : left;
+    box-sizing: border-box;
+    border:1px solid black;
+    width: auto;
+    height: auto;
+    line-height: 30px;
+    margin: 0 15px;
+}
+
+
+/* paging button 안에 있는 link 버튼을 꾸며줍니다. */
+.page_item > a {
+    display: block;
+    width:30px;
+    height:30px;
+}
+
+.page_item > a:hover {
+    color:blue;
+    background-color:rgb(223, 247, 255);
+    font-weight: 700;
+}
+
+/* 현재 선택된 페이지를 표시해 줍니다. */
+#nowPage {
+    background : rgb(149, 170, 238);
+    font-weight: 1100;
+}
+
+/* 버튼을 숨기는 영역입니다. */
+.disable_check {
+    visibility:hidden;
+}
+

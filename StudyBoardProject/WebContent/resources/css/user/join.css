@@ -1,1 +1,106 @@
 @charset "UTF-8";
+
+/* 어떤 페이지인지 알려주는 제목 태그입니다. */
+h1 {
+    padding : 50px;
+}
+
+/* form을 홀드해주는 박스 태그입니다. */
+#formHolder {
+    width: 486px;
+    height: 409px;
+    margin: auto;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    padding-top: 10px;
+}
+
+/* 폼의 넓이를 지정해줍니다. */
+.form_group {
+    position:relative;
+    width: 387px;
+    padding: 7px 20px;
+    height: 68px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* 각 라벨들의 포지션을 설정해줍니다. */
+#labelUserName {
+    position: absolute;
+    left: 41px;
+}
+
+#labelUserId {
+    position: absolute;
+    left: 34px;
+}
+
+#labelUserPw { 
+    position: absolute;
+    left: 24px;
+}
+
+#labelUserPwChk {  
+    position: absolute;
+    left: 10px;
+
+}
+
+/* 버튼의 위치를 지정해줍니다. */
+#checkIdButton {
+    background-color: white;
+    font-size: 13px;
+    border: 1px solid gainsboro;
+    padding: 5px;
+    background-color: skyblue;
+    position: absolute;
+    right: 20px;
+    top: 6px;
+}
+
+#checkIdButton:hover {
+    color:blue;
+    font-weight: 700;
+}
+
+/* 이 페이지의 모든 input 태그의 공통 속성입니다. */
+input {
+    height:24px;
+}
+
+/* 이 페이지의 모든 label 태그의 공통 속성입니다. */
+label {
+    line-height: 24px;
+}
+
+/* 에러 박스 설정입니다. */
+.error_box {
+    float: left;
+    margin-left: 85px;
+    margin-top: 8px;
+    margin-bottom: 7px;
+    color: red;
+    text-align: left;
+}
+
+
+/* 버튼 박스 설정입니다. */
+.button_box {
+    float:right;
+    font-size: 13px;
+    border: 1px solid gainsboro;
+    padding: 5px;
+    background-color: skyblue;
+    margin-top:5px;
+}
+
+.join_button {
+    background-color: skyblue;
+	font-size: 13px;
+}
+
+.join_button:hover {
+    color:blue;
+    font-weight: 700;
+}

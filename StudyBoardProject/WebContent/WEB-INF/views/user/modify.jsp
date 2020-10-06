@@ -31,32 +31,55 @@
 		<div id="mainHolder">
 			<div class="form_holder">
 				<h1>회원정보 수정 페이지입니다.</h1>
-				<form:form action="${root}user/modify_pro" method="post" modelAttribute="modifyUser">
+				<form:form class="user_modify_form" action="${root}user/modify_pro" method="post" modelAttribute="modifyUser">
 					<div class="form_group">
-						<form:label path="user_name">이름</form:label>
-						<form:input path="user_name" readonly="true"/>
+						<div class="label_box">
+							<form:label id="labelUserName" path="user_name">이  름 :</form:label>							
+						</div>
+						<div class="input_box">
+							<form:input id="inputUserName" path="user_name" readonly="true"/>						
+						</div>
+						<div class="clear_box"></div>
 					</div>
 					<div class="form_group">
-						<form:label path="user_id">아이디</form:label>
-						<form:input path="user_id" readonly="true"/>
+						<div class="label_box">
+							<form:label id="labelUserId" path="user_id">아 이 디 :</form:label>						
+						</div>	
+						<div class="input_box">
+							<form:input id="inputUserId" path="user_id" readonly="true"/>						
+						</div>
+						<div class="clear_box"></div>
 					</div>
 					<div class="form_group">
-						<form:label path="user_pw">비밀번호</form:label>
-						<form:password path="user_pw"/>
-						<form:errors path="user_pw" style="color:red"/>
+						<div class="label_box">
+							<form:label id="labelUserPW" path="user_pw">비 밀 번 호 :</form:label>						
+						</div>	
+						<div class="input_box">			
+							<form:password id="passwordUserPw" path="user_pw"/>
+						</div>					
+						<div class="error_box">
+							<form:errors id="errorsUserPw" path="user_pw" style="color:red"/>
+						</div>
+						<div class="clear_box"></div>					
 					</div>
 					<div class="form_group">
-						<form:label path="user_pw_chk">비밀번호 확인</form:label>
-						<form:password path="user_pw_chk"/>
-						<form:errors path="user_pw_chk" style="color:red"/>
+						<div class="label_box">
+							<form:label id="labelUserPwChk" path="user_pw_chk">비밀번호 확인 :</form:label>						
+						</div>	
+						<div class="input_box">
+							<form:password id="passwordUserPwChk" path="user_pw_chk"/>						
+						</div>
+						<div class="error_box">
+							<form:errors id="errorsUserPwChk" path="user_pw_chk" style="color:red"/>						
+						</div>
+						<div class="clear_box"></div>
 					</div>
 					<div class ="form_group">
 						<div class="button_box">
 							<form:button>정보수정</form:button>
 						</div>
 					</div>		
-				</form:form>			
-				<img src="${root}images/ryan.jpg"/>			
+				</form:form>					
 			</div>
 		</div>
 	</section>

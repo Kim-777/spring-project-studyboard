@@ -1,1 +1,153 @@
 @charset "UTF-8";
+
+/* 페이지 제목 부분입니다. */
+h1 {
+    padding: 50px;
+    font-size:22px;
+}
+
+/* 전체적인 content의 틀을 잡아주는 holder입니다. */
+.content_holder {
+    width: 700px;
+    margin: 0 auto;
+}
+
+/* 글쓴이가 들어가 있는 공간을 꾸며 줍니다. */
+.read_writer {
+    overflow: hidden;
+    height: 45px;
+}
+
+#labelWriter {
+    float: left;
+    height: 40px;
+    margin-left: 16px;
+    line-height: 40px;
+}
+
+#inputWriter {
+	float: left;
+    margin-left: 63px;
+    height: 40px;
+    width: 553px;
+}
+
+/* 날짜가 들어가는 공간을 꾸며줍니다. */
+.read_date {
+    overflow: hidden;
+    height: 45px;
+}
+
+#labelDate {
+    float:left;
+    height: 40px;
+    margin-left: 4px;
+    line-height: 40px;
+}
+
+#inputDate {
+    float: left;
+    margin-left: 56px;
+    height: 40px;
+    width: 553px;
+}
+
+/* 제목이 들어가는 공간을 꾸며줍니다. */
+.read_subject {
+    overflow: hidden;
+    height: 45px; 
+}
+
+#labelSubject {
+    float:left;
+    height: 40px;
+    margin-left: 20px;
+    line-height: 40px;
+}
+
+#inputSubject {
+    float:left;
+    margin-left: 73px;
+    height: 40px;
+    width: 553px;
+}
+
+/* 글이 들어가는 공간을 꾸며 줍니다. */
+.read_text {
+    overflow: hidden;
+    height: 400px; 
+}
+
+#labelContent {
+    float:left;
+    height: 40px;
+    margin-left: 21px;
+    line-height: 40px;
+}
+
+#inputContent {
+	box-sizing: border-box;
+    padding: 10px;
+    float:left;
+    margin-left: 72px;
+    height: 390px;
+    width: 557px;
+}
+
+#labelImage {
+    float: left;
+    height: 40px;
+    margin-left: 16px;
+    line-height: 40px;
+}
+
+/* 이미지가 출력되는 곳에 패딩값을 줍니다. */
+.read_image > img {
+    padding: 20px;
+}
+
+
+
+/* 아래의 목록보기, 수정하기, 삭제하기 버튼들 입니다. */
+.button_boxs_holder {
+    height: 50px;
+    position:relative;
+}
+
+#showList, #showModify, #showDelete {
+    box-sizing:border-box;
+    position:absolute;
+    font-size: 13px;
+    border: 1px solid gainsboro;
+    padding: 5px;
+    background-color: skyblue;
+    margin-top:5px;
+    bottom:10px;
+}
+
+#showList {
+     right:20px;   
+}
+
+#showList:hover {
+    color:blue;
+    font-weight: 700;
+}
+
+#showDelete {
+	right:165px;
+}
+
+#showDelete:hover {
+    color:blue;
+    font-weight: 700;
+}
+
+#showModify {
+    right:92px;
+}
+
+#showModify:hover {
+    color:blue;
+    font-weight: 700;
+}

@@ -20,16 +20,22 @@
     height: 260px;
     overflow: hidden;
     float: left;
-    margin: 40px 33px;
+    margin: 40px 27px;
+    padding-right: 10px;
 }
 
+.table_shadow {
+	height: auto;
+	width: auto;
+	box-shadow: 5px 5px 5px 5px rgb(194, 219, 248);
+}
 
 
 .main_table_title {
     box-sizing: border-box;
-    border-top : 1px solid gray;
-    border-bottom : 1px solid gray;
+    border : 1px solid gray;
     padding : 5px 0;
+    background-color: rgb(197, 217, 238);
 }
 
 /* 테이블에 제목이 들어가는 곳입니다.*/
@@ -46,9 +52,9 @@ td.main_text_subject > a:hover {
 /* 더보기 입니다. */
 .show_more {
     box-sizing: border-box;
-    border-top : 1px solid gray;
-    border-bottom : 1px solid gray;  
+    border : 1px solid gray;
     padding : 5px 0;
+    background-color: rgb(197, 217, 238);
 }
 
 /*더 보기 링크에 hover될 경우 글짜 색을 red로 변환시킵니다.*/

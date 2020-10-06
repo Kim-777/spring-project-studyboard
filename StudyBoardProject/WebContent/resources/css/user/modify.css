@@ -1,1 +1,71 @@
 @charset "UTF-8";
+
+/* 페이지 h1의 설정입니다. */
+h1 {
+    padding : 50px;
+    font-size: 22px;
+}
+
+/* form 안의 리스트를 각각 관련되어 있는 박스와 묶어줍니다. */
+.form_group {
+    padding-top: 5px;
+    width: 600px;
+    height: 47px;
+    margin: auto;
+    position: relative;
+}
+
+/* label들 공통 속성입니다. */
+.label_box {
+    width: 160px;
+    height: 40px;
+    float: left;
+    text-align: center;
+}
+
+/* input 박스들의 공통 속성입니다. */
+.input_box {
+    float:left;
+}
+
+/* 에러 박스들의 공통 속성입니다. */
+.error_box {
+    position: absolute;
+    bottom: 0;
+    left: 166px;
+}
+
+/* form을 한번더 묶어줍니다. */
+.user_modify_form {
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    margin: 10px auto;
+    width: 600px;
+}
+
+#inputUserName {
+	opacity: 0.7;
+	background-color: skyblue;
+}
+
+#inputUserId {
+	opacity: 0.7;
+	background-color: skyblue;
+}
+
+/* 버튼 박스입니다. */
+.button_box > button {
+    position :absolute;
+    bottom:5px;
+    right: 15px;
+    font-size: 13px;
+    border: 1px solid gainsboro;
+    padding: 5px;
+    background-color: skyblue;
+}
+
+/* 버튼에 마우스가 올라 갔을 떄 변화되는 속성입니다. */
+.button_box > button:hover {
+    color:blue;
+    font-weight: 700;
+}

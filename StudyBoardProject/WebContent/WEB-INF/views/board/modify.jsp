@@ -65,7 +65,7 @@
 					</div>
 					<div class="form_group">
 						<form:button>수정 완료</form:button>
-						<a href="${root}board/read>board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}">취소</a>
+						<a href="${root}board/read?board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}">취소</a>
 					</div>
 				</form:form>			
 			</div>	

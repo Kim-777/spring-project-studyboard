@@ -30,34 +30,41 @@
 	<section>
 		<div id="mainHolder">
 			<h1>게시판 글읽기 부분입니다.</h1>
-			<div class="read_box">
-				<label for="board_writer_name">작성자</label>
-				<input type="text" id="board_writer_name" name="board_writer_name" value="${readContent.content_writer_name}" disabled="disabled"/>
-			</div>
-			<div class="read_box">
-				<label for="board_date">작성 날짜</label>
-				<input type="text" id="board_date" name="board_writer_name" value="${readContent.content_date}" disabled="disabled"/>
-			</div>
-			<div class="read_box">
-				<label for="board_subject">제목</label>
-				<input type="text" id="board_subject" name="board_subject" value="${readContent.content_subject}" disabled="disabled"/>
-			</div>
-			<div class="read_box">
-				<label for="board_content">내용</label>
-				<textarea id="board_content" name="board_content" rows="10" style="resize:none" disabled="disabled">${readContent.content_text}</textarea>
-			</div>
-			<c:if test="${readContent.content_file != null }">
-				<div class="read_box">
-					<label for="board_file">첨부이미지</label>
-					<img src="${root}upload/${readContent.content_file}" width="10%"/>
-				</div>			
-			</c:if>
-			<div class="button_boxs_holder">
-				<a href="${root}board/main?board_info_idx=${board_info_idx}&page=${page}">목록보기</a>
-				<c:if test="${loginUser.user_idx == readContent.content_writer_idx}">
-					<a href="${root}board/modify?board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}">수정하기</a>
-					<a href="${root}board/delete?board_info_idx=${board_info_idx}&content_idx=${content_idx}">삭제하기</a>				
+			<div class="content_holder">
+				<div class="read_writer">
+					<label id="labelWriter" for="board_writer_name">작성자</label>
+					<input id="inputWriter" type="text" id="board_writer_name" name="board_writer_name" value="${readContent.content_writer_name}" disabled="disabled"/>
+				</div>
+				<div class="clear_box"></div>
+				<div class="read_date">
+					<label id="labelDate" for="board_date">작성 날짜</label>
+					<input id="inputDate" type="text" id="board_date" name="board_writer_name" value="${readContent.content_date}" disabled="disabled"/>
+				</div>
+				<div class="clear_box"></div>
+				<div class="read_subject">
+					<label id="labelSubject" for="board_subject">제목</label>
+					<input id="inputSubject" type="text" id="board_subject" name="board_subject" value="${readContent.content_subject}" disabled="disabled"/>
+				</div>
+				<div class="clear_box"></div>
+				<div class="read_text">
+					<label id="labelContent" for="board_content">내용</label>
+					<textarea id="inputContent" name="board_content" rows="10" style="resize:none" disabled="disabled">${readContent.content_text}</textarea>
+				</div>
+				
+				<c:if test="${readContent.content_file != null }">
+					<div class="read_image">
+						<label id="labelImage" for="board_file">첨부이미지</label><br/>
+						<img src="${root}upload/${readContent.content_file}" width="10%"/>
+					</div>	
+					<div class="clear_box"></div>		
 				</c:if>
+				<div class="button_boxs_holder">
+					<a id="showList" href="${root}board/main?board_info_idx=${board_info_idx}&page=${page}">목록보기</a>
+					<c:if test="${loginUser.user_idx == readContent.content_writer_idx}">
+						<a id="showModify" href="${root}board/modify?board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}">수정하기</a>
+						<a id="showDelete" href="${root}board/delete?board_info_idx=${board_info_idx}&content_idx=${content_idx}">삭제하기</a>				
+					</c:if>
+				</div>			
 			</div>
 		</div>
 	</section>	

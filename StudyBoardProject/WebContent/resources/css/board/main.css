@@ -4,6 +4,7 @@
 /* 게시판 테이블의 name(ex html, css, javascript)입니다. */
 .table_name {
  padding : 50px;
+ font-size : 22px;
 }
 
 /* 테이블에 내용을 담는 박스입니다. */

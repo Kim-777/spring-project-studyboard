@@ -62,38 +62,39 @@
 	
 	<!-- 회원가입 페이지 메인 부분입니다(start) -->
 	<section>
-		<h1>회원가입 페이지입니다.</h1>
 		<div id="mainHolder">
-			<form:form action="${root}user/join_pro" method="post" modelAttribute="joinUser">
-			<form:hidden path="userIdExist"/>
-				<div class="form_group">
-					<form:label path="user_name">이름</form:label>
-					<form:input path="user_name"/><br/>
-					<form:errors path="user_name" style="color:red"/>
-				</div>
-				<div class="form_group">
-					<form:label path="user_id">아이디</form:label>
-					<form:input path="user_id" onkeypress="resetUserIdExist()"/><br/>
-					<form:errors path="user_id" style="color:red"/>
-					<button type="button" onclick="checkUserIdExist()">중복확인</button>
-				</div>
-				<div class="form_group">
-					<form:label path="user_pw">비밀번호</form:label>
-					<form:password path="user_pw"/><br/>
-					<form:errors path="user_pw" style="color:red"/>
-				</div>
-				<div class="form_group">
-					<form:label path="user_pw_chk">비밀번호 확인</form:label>
-					<form:password path="user_pw_chk"/><br/>
-					<form:errors path="user_pw_chk" style="color:red"/>
-				</div>
-				<div class ="form_group">
-					<div class="button_box">
-						<form:button>회원가입</form:button>
+			<h1>회원가입 페이지입니다.</h1>
+			<div id="formHolder">
+				<form:form id="joinForm" action="${root}user/join_pro" method="post" modelAttribute="joinUser">
+				<form:hidden path="userIdExist"/>
+					<div class="form_group">
+						<form:label id="labelUserName" path="user_name">이름</form:label>
+						<form:input id="inputUserName" path="user_name"/><br/>
+						<form:errors class="error_box" path="user_name"/>
 					</div>
-				</div>		
-			</form:form>
-			<img src="${root}images/ryan.jpg"/>		
+					<div class="form_group">
+						<form:label id="labelUserId" path="user_id">아이디</form:label>
+						<form:input id="inputUserId" path="user_id" onkeypress="resetUserIdExist()"/><br/>
+						<form:errors class="error_box" path="user_id"/>
+						<button id="checkIdButton" type="button" onclick="checkUserIdExist()">중복확인</button>
+					</div>
+					<div class="form_group">
+						<form:label id="labelUserPw" path="user_pw">비밀번호</form:label>
+						<form:password id="userPw" path="user_pw"/><br/>
+						<form:errors class="error_box" path="user_pw"/>
+					</div>
+					<div class="form_group">
+						<form:label id="labelUserPwChk" path="user_pw_chk">비밀번호 확인</form:label>
+						<form:password id="UserPwChk" path="user_pw_chk"/><br/>
+						<form:errors class="error_box" path="user_pw_chk"/>
+					</div>
+					<div class ="form_group">
+						<div class="button_box">
+							<form:button class="join_button">회원가입</form:button>
+						</div>
+					</div>		
+				</form:form>				
+			</div>
 		</div>
 	</section>
 	<!-- 회원가입 페이지 메인 부분입니다(end) -->

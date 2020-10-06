@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* ------------------ 전체적인 틀 영역입니다 ------------------  */
-* {padding:0; margin:0; font-family: 'Sunflower', sans-serif;}
+* {padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:14px;}
 ol, ul, li {list-style-type: none;}
 a {text-decoration: none; color:black; outline:none;}
 body {background-color: white;}
@@ -128,6 +128,7 @@ div#headerWrap {
 /* ------------------  footer 영역입니다. ------------------  */
 
 footer {
+	margin-top : 30px;
     height: 100%;
     border-top:1px solid #e8e8e8;
 }

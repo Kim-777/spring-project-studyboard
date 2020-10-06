@@ -31,29 +31,31 @@
 	<section>
 		<div id="mainHolder">
 			<div class="main_box_list">
-				<c:forEach var="sub_list" items="${list}" varStatus="idx">
+				<c:forEach var="sub_list" items="${list}" varStatus="idx">			
 					<div class="main_table_holder">
-						<h4 class="main_table_title">${board_list[idx.index].board_info_name}</h4>
-						<table class="main_table">
-							<thead>
-								<tr>
-									<th class="main_text_number">글번호</th>
-									<th class="main_text_subject">제목</th>
-									<th class="main_text_date">작성날짜</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="obj" items="${sub_list}">
-									<tr >
-										<td class="main_text_number">${obj.content_idx}</td>
-										<td class="main_text_subject"><a href="${root}board/read?board_info_idx=${board_list[idx.index].board_info_idx}&content_idx=${obj.content_idx}&page=1">${obj.content_subject}</a></td>
-										<td class="main_text_date">${obj.content_date}</td>
-									</tr>								
-								</c:forEach>
-							</tbody>
-						</table>
-						<div class="show_more">
-							<a href="${root}board/main?board_info_idx=${board_list[idx.index].board_info_idx}">더보기</a>	
+						<div class="table_shadow">
+							<h4 class="main_table_title">${board_list[idx.index].board_info_name}</h4>
+							<table class="main_table">
+								<thead>
+									<tr>
+										<th class="main_text_number">글번호</th>
+										<th class="main_text_subject">제목</th>
+										<th class="main_text_date">작성날짜</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="obj" items="${sub_list}">
+										<tr >
+											<td class="main_text_number">${obj.content_idx}</td>
+											<td class="main_text_subject"><a href="${root}board/read?board_info_idx=${board_list[idx.index].board_info_idx}&content_idx=${obj.content_idx}&page=1">${obj.content_subject}</a></td>
+											<td class="main_text_date">${obj.content_date}</td>
+										</tr>								
+									</c:forEach>
+								</tbody>
+							</table>
+							<div class="show_more">
+								<a href="${root}board/main?board_info_idx=${board_list[idx.index].board_info_idx}">더보기</a>	
+							</div>
 						</div>		
 					</div>				
 				</c:forEach>	

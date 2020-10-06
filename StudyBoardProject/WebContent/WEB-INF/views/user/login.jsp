@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  css를 사용하기 위한 링크입니다. -->
     <link rel="stylesheet" href="${root}css/common.css">
-    <link rel="styleshhet" href="${root}css/uesr/login.css">
+    <link rel="stylesheet" href="${root}css/user/login.css">
     <!-- ajax를 사용하기 위한 script입니다. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -34,25 +34,24 @@
 			<div class="form_holder">
 				<form:form action ="${root}user/login_pro" method="post" modelAttribute="tryLoginUser">
 					<c:if test="${fail==true}">
-					<div class="login_fail_box">
-						<h3>로그인을 실패했습니다.</h3>
-						<p>아이디와 비밀번호를 확인해 주세요.</p>
-					</div>
+                    <div class="login_fail_box">
+                        <h3><i class="fas fa-skull"></i>로그인을 실패했습니다.</h3>
+                        <p>아이디와 비밀번호를 확인해 주세요.</p>
+                    </div>
 					</c:if>
-					<div>
-						<form:label path="user_id">아이디</form:label>
-						<form:input path="user_id"/>
-						<form:errors path="user_id" style="color:red"/>
+					<div class="login_box">
+						<form:label id="loginIdLabel" path="user_id">아 이 디 : </form:label>
+						<form:input id="loginId" path="user_id" placeholder="아이디를 입력해주세요"/><br/>
+						<form:errors class="login_errors"  path="user_id" style="color:red"/>
 					</div>
-					<div>
-						<form:label path="user_pw">비밀번호</form:label>
-						<form:password path="user_pw"/>
-						<form:errors path="user_pw" style="color:red"/>
+					<div class="login_box">
+						<form:label id="loginPwLabel" path="user_pw">비밀번호 : </form:label>
+						<form:password id="loginPw" path="user_pw" placeholder="비밀번호를 입력해주세요"/><br/>
+						<form:errors class="login_errors"  path="user_pw" style="color:red"/>
 					</div>
-					<form:button>로그인</form:button>
-					<a href="${root}user/join">회원가입</a>
-				</form:form>
-			<img src="${root}images/ryan.jpg"/>					
+					<form:button id="loginButton">로그인</form:button>
+					<a class="login_join_button" href="${root}user/join">회원가입</a>
+				</form:form>					
 			</div>
 		</div>
 	</section>

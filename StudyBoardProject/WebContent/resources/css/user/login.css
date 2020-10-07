@@ -40,17 +40,8 @@ h1 {
 #loginIdLabel {
     font-size: 14px;
 }
-#loginButton{
-    background-color: white;
-    font-size : 16px;
-    border : 1px solid gainsboro;
-    padding: 5px;
-    background-color: rgb(255, 250, 242);
-    position :absolute;
-    right: 20px;
-    bottom: 20px;
-}
 
+/* 로그인과 비밀번호 input을 꾸며줍니다. */
 #loginId {
 	height: 20px;
     width: 200px;
@@ -65,10 +56,29 @@ h1 {
     padding: 10px 0 10px 84px;
 }
 
+/*로그인과 회원가입 버튼을 감싸고 있는 holder입니다.*/
 .button_box {
 	position: relative;
     height: 50px;
 }
+
+/* 로그인 버튼을 꾸며줍니다. */
+#loginButton{
+    background-color: white;
+    font-size : 16px;
+    border : 1px solid gainsboro;
+    padding: 5px;
+    background-color: rgb(255, 250, 242);
+    position :absolute;
+	right: 0px;
+    bottom: 0px;
+}
+
+#loginButton:hover {
+	color:red;
+	font-size:700;
+}
+
 
 .login_join_button {
     background-color: white;
@@ -77,6 +87,11 @@ h1 {
     padding: 5px;
     background-color: rgb(255, 250, 242);
     position: absolute;
-    right: 90px;
-    bottom: 20px;
+    right: 68px;
+    bottom: 0px;
+}
+
+.login_join_button >a:hover {
+	color:red;
+	font-size:700;
 }

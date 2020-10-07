@@ -1,1 +1,30 @@
 @charset "UTF-8";
+
+/* 경고창의 아이템들을 홀드해줍니다.*/
+#wrongBox {
+    padding-top : 200px;
+    width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* fontawesome 태그들을 꾸며줍니다.*/
+.fas {
+    font-size: 40px;
+    color: rgb(13, 78, 139);
+}
+
+/* p태그 설정입니다.*/
+#wrongBox > p {
+    padding: 20px 0 10px;
+    font-size: 30px;
+}
+
+/* 링크 태그 설정입니다.*/
+#wrongBox > a{
+    color:red;
+}
+
+#wrongBox >a:hover {
+    font-weight: 700;
+}

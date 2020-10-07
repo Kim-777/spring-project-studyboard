@@ -24,6 +24,8 @@ thead {
 /* 테이블 row 영역입니다. */
 tr {
     height:40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid gray;
 }
 
 /* row 영역에 효과를 주는 영역입니다. */

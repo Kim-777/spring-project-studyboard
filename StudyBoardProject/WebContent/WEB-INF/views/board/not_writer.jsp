@@ -21,11 +21,15 @@
     <title>잘못된 접근입니다.</title>
 </head>
 <body>
-	<section id="wrongApproach">
-		<div id="wrongBox">
-			<p>잘못된 접근입니다.</p>
-			<a id="goMainButton" href="${root}index">여기를 클릭 하시면 홈페이지로 돌아갑니다.</a>
-		</div>
-	</section>
+	<!-- 잘못된 접근 색션입니다(start) -->
+    <section id="wrongApproach">
+        <div id="wrongBox">
+            <i class="fas fa-shoe-prints"></i>
+            <i class="fas fa-hand-paper"></i>
+            <p>권한이 없는 잘못된 접근입니다.</p>
+            <a id="goMainButton" href="${root}index">여기를 클릭 하시면 홈페이지로 돌아갑니다.</a>
+        </div>
+    </section>
+	<!-- 잘못된 접근 색션입니다(end) -->
 </body>
 </html>

@@ -1,5 +1,159 @@
 @charset "UTF-8";
 
-.check {
-	background : red;
+/* 페이지 제목 부분입니다. */
+h1 {
+    padding: 50px;
+    font-size:22px;
+}
+
+/* 전체적인 content의 틀을 잡아주는 holder입니다. */
+.form_holder {
+    width: 700px;
+    margin: 0 auto;
+}
+
+/* 글쓴이가 들어가 있는 공간을 꾸며 줍니다. */
+.modify_writer {
+    overflow: hidden;
+    height: 45px;
+}
+
+#labelWriter {
+    float: left;
+    height: 40px;
+    margin-left: 16px;
+    line-height: 40px;
+}
+
+#inputWriter {
+    float: left;
+    margin-left: 60px;
+    height: 40px;
+    width: 500px;
+    background-color:rgba(239, 239, 239);
+    border-color: rgba(118, 118, 118, 0.3);
+}
+
+/* 날짜가 들어가는 공간을 꾸며줍니다. */
+.read_date {
+    overflow: hidden;
+    height: 45px;
+}
+
+#labelDate {
+    float:left;
+    height: 40px;
+    margin-left: 9px;
+    line-height: 40px;
+}
+
+#inputDate {
+    float: left;
+    margin-left: 53px;
+    height: 40px;
+    width: 500px;
+    background-color:rgba(239, 239, 239);
+    border-color: rgba(118, 118, 118, 0.3);
+}
+
+/* 제목이 들어가는 공간을 꾸며줍니다. */
+.modify_subject {
+    position: relative;
+    width: 622px;
+    height: 64px;
+}
+
+#labelSubject {
+    float:left;
+    height: 40px;
+    margin-left: 24px;
+    line-height: 40px;
+}
+
+#inputSubject {
+    float:left;
+    margin-left: 66px;
+    height: 40px;
+    width: 500px;
+    margin-top: 1px;
+}
+
+#errorSubject {
+    height: 28px;
+    color: red;
+    padding-top: 5px;
+}
+
+/* 글이 들어가는 공간을 꾸며 줍니다. */
+.modify_content {
+    height: 400px; 
+    width: 624px;
+}
+
+#labelContent {
+    float:left;
+    height: 40px;
+    margin-left: 26px;
+    line-height: 40px;
+}
+
+#inputContent {
+    float: left;
+    margin-left: 66px;
+    height: 390px;
+    width: 499px;
+    margin-top: 3px;
+}
+
+#labelImage {
+    float: left;
+    height: 40px;
+    margin-left: 16px;
+    line-height: 40px;
+}
+
+/* 이미지 관련 레이아웃 입니다. */
+.modify_img {
+    margin-top: 30px;
+}
+
+#newFile {
+    padding-top: 10px;
+    padding-left: 93px;
+}
+
+/* 하단에 잇는 수정하기, 취소 버튼의 레이아웃 입니다. */
+.button_box {
+    height: 50px;
+    position:relative;
+}
+
+#modifyButton, #cancelButton {
+    width : 70px;
+    box-sizing:border-box;
+    position:absolute;
+    font-size: 13px;
+    border: 1px solid gainsboro;
+    padding: 5px;
+    background-color: skyblue;
+    margin-top:5px;
+    bottom:10px;
+}
+
+#cancelButton {
+    right: 10px;
+}
+
+#modifyButton {
+    right: 90px;
+}
+
+#cancelButton:hover {
+    color:blue;
+    font-weight: 700;
+}
+
+#modifyButton:hover {
+    color:blue;
+    font-weight: 700;
 }

@@ -1,1 +1,109 @@
 @charset "UTF-8";
+
+/* 페이지의 제목입니다. */
+h1 {
+    padding: 50px;
+    font-size: 22px;
+}
+
+/* form의 전체적으로 묶는 holder입니다. */
+#writeForm {
+    width: 700px;
+    margin: 0 auto;
+}
+
+/* 각각 관련된 박스들을 묶어줍니다. */
+.form_group {
+    width: 700px;
+    margin: 0 auto;
+    position: relative;
+    height: auto;
+}
+
+/* 제목 부분 레이아웃입니다. */
+#labelSubject {
+    float: left;
+    height: 40px;
+    margin-left: 16px;
+    line-height: 40px;
+}
+
+#inputSubject {
+    float: left;
+    margin-left: 60px;
+    height: 40px;
+    width: 565px;
+    padding: 0 10px 0 10px;
+}
+
+#errorsSubject {
+    display: block;
+    text-align: left;
+    padding-left: 109px;
+    padding-bottom: 10px;
+}
+
+/* 글의 중심 내용의 레이아웃입니다. */
+#labelText {
+    float: left;
+    height: 40px;
+    margin-left: 16px;
+    line-height: 40px;
+}
+
+#inputText {
+    float: left;
+    margin-left: 60px;
+    height: 300px;
+    width: 565px;
+    padding: 0 10px 0 10px;
+}
+
+#errorsText {
+	display: block;
+    text-align: left;
+    padding-left:109px;
+    padding-bottom: 10px;
+}
+
+
+/* file의 레이아웃입니다. */
+#labelFile {
+    float: left;
+    height: 40px;
+    margin-left: 16px;
+    line-height: 40px;
+}
+
+#inputFile {
+    float: left;
+    margin-left: 11px;
+    height: 40px;
+    width: 500px;
+    padding: 0 10px 0 10px;
+    line-height: 40px;
+}
+
+/* 버튼이 있는 공간의 레이아웃 입니다. */
+.button_box {
+    height: 50px;
+    position: relative;
+}
+
+/* 글쓰기를 submit 하는 버튼입니다. */
+#writeButton {
+    box-sizing:border-box;
+    position:absolute;
+    font-size: 13px;
+    border: 1px solid gainsboro;
+    padding: 5px;
+    background-color: skyblue;
+    margin-top:5px;
+    bottom:5px;
+    right:10px;
+    }
+    
+#writeButton:hover {
+    color:blue;
+    font-weight: 700;
+    }

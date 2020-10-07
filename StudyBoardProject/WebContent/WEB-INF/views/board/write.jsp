@@ -32,25 +32,28 @@
 		<div id="mainHolder">
 			<div class="form_holder">
 				<h1>게시판 글쓰기 부분입니다.</h1>
-				<form:form action="${root}board/write_pro" method="post" modelAttribute="writeContent" enctype="multipart/form-data">
+				<form:form id="writeForm" action="${root}board/write_pro" method="post" modelAttribute="writeContent" enctype="multipart/form-data">
 					<form:hidden path="content_board_idx"/>
 					<input type="hidden" name="page" value="${page}"/>
 					<div class="form_group">
-						<form:label path="content_subject">제목</form:label>
-						<form:input path="content_subject"/>
-						<form:errors path= "content_subject" style="color:red"/>				
+						<form:label id="labelSubject" path="content_subject">제목</form:label>
+						<form:input id="inputSubject" path="content_subject"/>
+						<form:errors id="errorsSubject" path= "content_subject" style="color:red"/>	
+						<div class="clear_box"></div>			
 					</div>
 					<div class="form_group">
-						<form:label path="content_text">내용</form:label>
-						<form:textarea path="content_text"/>
-						<form:errors path="content_text" style="color:red"/>
+						<form:label id="labelText" path="content_text">내용</form:label>
+						<form:textarea id="inputText" path="content_text"/>
+						<form:errors id="errorsText" path="content_text" style="color:red"/>
+				 		<div class="clear_box"></div>
 					</div>
 					<div class="form_group">
-						<form:label path="upload_file">첨부 이미지</form:label>
-						<form:input path="upload_file" accept="image/*" type='file'/>
+						<form:label id="labelFile" path="upload_file">첨부 이미지</form:label>
+						<form:input id="inputFile" path="upload_file" accept="image/*" type='file'/>
+						<div class="clear_box"></div>
 					</div>
 					<div class="form_group">
-						<form:button>작성하기</form:button>
+						<form:button id="writeButton">작성하기</form:button>
 					</div>
 				</form:form>		
 			</div>

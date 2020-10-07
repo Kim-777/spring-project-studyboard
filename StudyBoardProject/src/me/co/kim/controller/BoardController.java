@@ -93,8 +93,10 @@ public class BoardController {
 						@RequestParam("page") int page,
 						Model model) {
 		
+		//content에 현제 board_idx 번호를 새팅하비다.
 		writeContent.setContent_board_idx(board_info_idx);
 		
+		// 현제 페이지 번호를 model에 담습니다.
 		model.addAttribute("page", page);
 		
 		return "board/write";
@@ -133,6 +135,7 @@ public class BoardController {
 		//service 객체를 통해 현재 페이지의 content의 정보를 변수에 담습니다.
 		Content tempContent = boardService.getContentInfo(content_idx);
 		
+		//수정할 content의 기본 정보를 담습니다.
 		modifyContent.setContent_writer_name(tempContent.getContent_writer_name());
 		modifyContent.setContent_date(tempContent.getContent_date());
 		modifyContent.setContent_subject(tempContent.getContent_subject());
@@ -149,13 +152,13 @@ public class BoardController {
 	
 	//게시글 수정 요청을 받는 메서드입니다.
 	@PostMapping("/modify_pro")
-	public String modify_pro(@Valid @ModelAttribute("modifyContent") Content modifyContent, 
+	public String modify_pro(@Valid @ModelAttribute("modifyContent") Content modifyContent, BindingResult result,
 							 @RequestParam("page") int page,
-							 Model model, 
-							 BindingResult result) {
+							 Model model) {
 		
 		model.addAttribute("page", page);
 		
+		// 유효성 검사에 통과하지 못하면 board/modify를 리턴합니다.
 		if(result.hasErrors()) {
 			return "board/modify";
 		}
@@ -180,6 +183,7 @@ public class BoardController {
 		return "board/delete";
 	}
 	
+	// 작성자가 아니지만, 직접 검색창에 치고 들어온 유저에게 not_writer 페이지를 리턴하는 메서드입니다.
 	@GetMapping("/not_writer")
 	public String not_writer() {
 		return "board/not_writer";

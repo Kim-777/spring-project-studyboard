@@ -49,8 +49,10 @@
 						<form:password id="loginPw" path="user_pw" placeholder="비밀번호를 입력해주세요"/><br/>
 						<form:errors class="login_errors"  path="user_pw" style="color:red"/>
 					</div>
-					<form:button id="loginButton">로그인</form:button>
-					<a class="login_join_button" href="${root}user/join">회원가입</a>
+					<div class="button_box">
+						<form:button id="loginButton">로그인</form:button>
+						<a class="login_join_button" href="${root}user/join">회원가입</a>					
+					</div>
 				</form:form>					
 			</div>
 		</div>

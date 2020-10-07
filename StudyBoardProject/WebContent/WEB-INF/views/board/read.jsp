@@ -54,7 +54,7 @@
 				<c:if test="${readContent.content_file != null }">
 					<div class="read_image">
 						<label id="labelImage" for="board_file">첨부이미지</label><br/>
-						<img src="${root}upload/${readContent.content_file}" width="10%"/>
+						<img src="${root}upload/${readContent.content_file}" width="30%"/>
 					</div>	
 					<div class="clear_box"></div>		
 				</c:if>

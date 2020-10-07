@@ -144,8 +144,8 @@ div#footerWrap {
 
 /* 작성자 정보를 꾸며줍니다. */
 #authorInfo {
-    font-size : 15px;
-    margin: 15px 0;
+    font-size: 15px;
+    margin: 27px 0;
 }
 
 /* 사용한 기술들을 모아두는 박스입니다. */
@@ -154,6 +154,14 @@ div#footerWrap {
     margin: 15px 0;
 }
 
+/*사용한 기술들을 모아놓은 박스입니다.*/
+.logo_box {
+	margin-bottom: 50px;
+}
+
+#gitHub {
+	margin: 14px 0;
+}
 /* 오라클 이미지 크기가 다른 것들에 비해 작아 padding 값을 5 주었습니다. */
 .oracle_logo {
     padding-top:5px;

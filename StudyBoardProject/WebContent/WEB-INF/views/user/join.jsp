@@ -25,7 +25,7 @@
     	function checkUserIdExist() {
     		
     		// 유저의 아이디 값의 담긴 값을 변수 user_id에 담습니다.
-    		var user_id = $("#user_id").val()
+    		var user_id = $("#inputUserId").val()
     		
     		//길이가 0이라면 입력된 값이 없다는 소리임으로 아이디를 입력해달라는 alert을 띄웁니다.
     		if(user_id.length == 0) {

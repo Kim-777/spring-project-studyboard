@@ -26,46 +26,51 @@
 	<c:import url="/WEB-INF/views/include/top.jsp"/>
 	<!-- header 부분을 import 합니다(end) -->
 	
-	<div class="check">check</div>
-	
 	<!-- 게시판 수정하기 메인 부분입니다(start) -->
 	<section>
 		<div id="mainHolder">
+			<h1>게시판 수정하기 부분입니다.</h1>		
 			<div class="form_holder">
-				<h1>게시판 수정하기 부분입니다.</h1>
-				<form:form action="${root}board/modify_pro" method="post" modelAttribute="modifyContent" enctype="multipart/form-data">
+				<form:form id="modifyForm" action="${root}board/modify_pro" method="post" modelAttribute="modifyContent" enctype="multipart/form-data">
 					<form:hidden path="content_idx"/>
 					<form:hidden path="content_board_idx"/>
 					<input type="hidden" name="page" value="${page}">
-					<div class="form_group">
-						<form:label path="content_writer_name">작성자</form:label>
-						<form:input path="content_writer_name" readonly="true"/>
+					<div class="modify_writer">
+						<form:label id="labelWriter" path="content_writer_name">작성자</form:label>
+						<form:input id="inputWriter" path="content_writer_name" readonly="true"/>
 					</div>
-					<div class="form_group">
-						<form:label path="content_date">작성날짜</form:label>
-						<form:input path="content_date" readonly="true"/>
+					<div class="clear_box"></div>
+					<div class="modify_date">
+						<form:label id="labelDate" path="content_date">작성날짜</form:label>
+						<form:input id="inputDate" path="content_date" readonly="true"/>
 					</div>
-					<div class="form_group">
-						<form:label path="content_subject">제목</form:label>
-						<form:input path="content_subject"/>
-						<form:errors path="content_subject" style="color:red"/>
+					<div class="clear_box"></div>					
+					<div class="modify_subject">
+						<form:label id="labelSubject" path="content_subject">제목</form:label>
+						<form:input id="inputSubject" path="content_subject"/>
+						<form:errors id="errorSubject" path="content_subject" style="color:red"/>
 					</div>
-					<div class="form_group">
-						<form:label path="content_text">내용</form:label>
-						<form:textarea path="content_text" rows="10" style="resize:none"/>
-						<form:errors path="content_text" style="color:red"/>
+					<div class="clear_box"></div>
+					<div class="modify_content">
+						<form:label id="labelContent" path="content_text">내용</form:label>
+						<form:textarea id="inputContent" path="content_text" rows="10" style="resize:none"/>
+						<form:errors id="errorContent" path="content_text" style="color:red"/>
 					</div>
-					<div class="form_group">
-						<form:label path="upload_file">첨부 이미지</form:label>
+					<div class="clear_box"></div>
+					<div class="modify_img">
+						<form:label id="labelImage" path="upload_file">첨부 이미지</form:label>
 						<c:if test="${modifyContent.content_file !=null}">
-							<img src="${root}/upload/${modifyContent.content_file}" width="10%">
+							<div id="imgHolder">
+								<img id="originImg" src="${root}/upload/${modifyContent.content_file}" width="30%">
+							</div>
 							<form:hidden path="content_file"/>
 						</c:if>
-						<form:input path="upload_file" type="file" accept="image/*"/>
+						<form:input id="newFile" path="upload_file" type="file" accept="image/*"/>
 					</div>
-					<div class="form_group">
-						<form:button>수정 완료</form:button>
-						<a href="${root}board/read?board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}">취소</a>
+					<div class="clear_box"></div>
+					<div class="button_box">
+						<form:button id="modifyButton">수정 완료</form:button>
+						<a id="cancelButton" href="${root}board/read?board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}">취소</a>
 					</div>
 				</form:form>			
 			</div>	

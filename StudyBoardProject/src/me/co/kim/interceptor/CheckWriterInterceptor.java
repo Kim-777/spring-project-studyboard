@@ -12,6 +12,7 @@ import me.co.kim.domain.Content;
 import me.co.kim.domain.User;
 import me.co.kim.service.BoardService;
 
+// 게시글을 쓰지 않은 유저가 인위적으로 접근할 떄, not_writer 페이지를 보여주는 Interceptor입니다.
 public class CheckWriterInterceptor implements HandlerInterceptor{
 	
 	

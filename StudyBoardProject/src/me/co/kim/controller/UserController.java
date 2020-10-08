@@ -48,19 +48,24 @@ public class UserController {
 		return "user/login";
 	}
 	
-	
+	// user/login_pro 요청을 받아드리는 메서드입니다.
+	// 입력된 입력 값에 따라 user/login, user/login_fail, user/login_success를 반환합니다.
 	@PostMapping("/login_pro")
 	public String login_pro(@Valid @ModelAttribute("tryLoginUser") User tryLoginUser, BindingResult result) {
 		
+		// 유효성 검사에 걸리는 데이터가 있다면 user/login을 반환합니다.
 		if(result.hasErrors()) {
 			return "user/login";
 		}
 		
+		// service 객체를 이용하여 입력한 유저의 값이 있는지 데이터베이스에 접근합니다.
 		userService.getLoginUserInfo(tryLoginUser);
 		
+		// 위에 service 객체의 getLoginUserInfo가 만약 입력 받은 parameter의 값이 데이터베이스에 존재한다면 loginUser의 값을 새팅해 주기 때문에 isUserLogin()이 true 값이 됩니다.
 		if(loginUser.isUserLogin() == true) {
 			return "user/login_success";
 		} else {
+			//만약 데이터 베이스 존재 하지 않는다면 login_fail을 반환합니다.
 			return "user/login_fail";
 		}
 		
@@ -100,13 +105,18 @@ public class UserController {
 		return "user/modify";
 	}
 	
+	
+	// user/modify_pro 요청을 받아드리는 메서드입니다.
+	// user/modify, user/modify_sucess를 반환합니다.
 	@PostMapping("/modify_pro")
 	public String modify_pro(@Valid @ModelAttribute("modifyUser") User modifyUser, BindingResult result) {
 		
+		// 만약 유효성 검사를 통과하지 못한다면 user/modify를 반환합니다.
 		if(result.hasErrors()) {
 			return "user/modify";
 		}
 		
+		// service 객체의 modifyUserInfo를 호출하여 파라미터 값을 넘겨 줍니다.
 		userService.modifyUserInfo(modifyUser);
 		
 		return "user/modify_sucess";
@@ -118,16 +128,17 @@ public class UserController {
 	public String logout() {
 		
 		loginUser.setUserLogin(false);
-		
 		return "user/logout";
 	}
 	
+	// 로그인 시 사용할 수 있는 서비스를 인위적으로 접근하는 요청을 받는 메서드입니다.
+	// interceptor 사용
 	@GetMapping("/not_login")
 	public String not_login() {
 		return "user/not_login";
 	}
 	
-	
+	// validator를 사용하기 위해 IniBinder를 정의해줍니다.
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		//유저발리데이터를 추가해줍니다.

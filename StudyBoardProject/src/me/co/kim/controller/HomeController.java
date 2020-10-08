@@ -14,7 +14,9 @@ public class HomeController {
 	@RequestMapping(value ="/", method = RequestMethod.GET)
 	public String home(HttpServletRequest request) {
 		
-		System.out.println(request.getServletContext().getRealPath("/"));
+		//System.out.println(request.getServletContext().getRealPath("/"));
+		
+		// 브라우저에게 redirect를 전달함으로써 브라우저가 다시 요청을 하도록 합니다.
 		// index jsp를 반환해줍니다.
 		return "redirect:/index";
 	}

@@ -21,6 +21,7 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 	
+	//include에 있는 top영역을 꾸며주기 위한 데이터를 받을 수 있는 TopMenuService를 객체로 받습니다.
 	@Autowired
 	private TopMenuService topMenuService;
 	
@@ -33,6 +34,7 @@ public class MainController {
 		ArrayList<List<Content>> list = new ArrayList<List<Content>>();
 
 		
+		// html, css, javascript, java, spring, database로 데이터가 정해져 있어 for문의 반복 횟수를 6으로 고정할 수 있습니다(절대적인 수치라 고정했습니다)
 		// 6번 동안 for문을 돌며 생성한 content가 담긴 list들을 arraylist에 담아주는 로직입니다.
 		for(int i=1; i<= 6; i++) {
 			List<Content> list1 = mainService.getMainList(i);

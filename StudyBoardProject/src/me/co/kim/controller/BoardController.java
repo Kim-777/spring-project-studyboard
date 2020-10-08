@@ -70,6 +70,7 @@ public class BoardController {
 					   @RequestParam("page") int page, 
 					   Model model) {
 		
+		//model에 board_info_idx와 content_idx를 담습니다.
 		model.addAttribute("board_info_idx", board_info_idx);
 		model.addAttribute("content_idx", content_idx);
 		
@@ -80,6 +81,7 @@ public class BoardController {
 		// 로그인된 객체를 model에 담아 줍니다.
 		model.addAttribute("loginUser", loginUser);
 		
+		// page를 model에 담습니다.
 		model.addAttribute("page", page);
 		
 		return "board/read";
@@ -108,12 +110,15 @@ public class BoardController {
 	public String write_pro(@Valid @ModelAttribute("writeContent") Content writeContent, BindingResult result,
 							@RequestParam("page") int page, Model model) {
 		
+		//page를 모델에 담습니다.
 		model.addAttribute("page", page);
 		
+		// 만약 유효성 검사에 통과되지 못하는 경우가 있다면 board/write를 리턴합니다.
 		if(result.hasErrors()) {
 			return "board/write";
 		}
 		
+		//service 객체를 이용해서 새로운 content를 데이터베이스에 담습니다.
 		boardService.addContentInfo(writeContent);
 		
 		return "board/write_success";
@@ -145,6 +150,7 @@ public class BoardController {
 		modifyContent.setContent_board_idx(board_info_idx);
 		modifyContent.setContent_idx(content_idx);
 		
+		//페이지를 모델에 담습니다.
 		model.addAttribute("page", page);
 		
 		return "board/modify";
@@ -156,6 +162,7 @@ public class BoardController {
 							 @RequestParam("page") int page,
 							 Model model) {
 		
+		//페이지를 모델에 담습니다.
 		model.addAttribute("page", page);
 		
 		// 유효성 검사에 통과하지 못하면 board/modify를 리턴합니다.
@@ -163,6 +170,7 @@ public class BoardController {
 			return "board/modify";
 		}
 		
+		// service 객체를 이용해서 데이터베이스에 접근해 수정된 content를 업데이트 합니다.
 		boardService.modifyContentInfo(modifyContent);
 		
 		

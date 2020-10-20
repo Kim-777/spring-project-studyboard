@@ -19,7 +19,7 @@
     <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
     <!-- 글자체를 임포트합니다. -->
 	<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">	
-    <title>게시판 글쓰기</title>
+    <title>게시판 글쓰기 페이지</title>
 </head>
 <body>
 	<!-- header 부분을 import 합니다(start) -->
@@ -31,7 +31,7 @@
 	<section>
 		<div id="mainHolder">
 			<div class="form_holder">
-				<h1>게시판 글쓰기 부분입니다.</h1>
+				<h1>게시판 글쓰기</h1>
 				<form:form id="writeForm" action="${root}board/write_pro" method="post" modelAttribute="writeContent" enctype="multipart/form-data">
 					<form:hidden path="content_board_idx"/>
 					<input type="hidden" name="page" value="${page}"/>

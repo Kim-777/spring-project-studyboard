@@ -7,9 +7,9 @@
    <footer>
        <div id="footerWrap">
            <div id="authorInfo">
-         	      작성자 : 김예찬 010 - 9938 - 8190
+         	      작성자 : 김예찬      010 - 9938 - 8190
            </div>
-           <div id="gitHub">소스보기 : <a href="https://github.com/Kim-777">https://github.com/Kim-777</a></div>
+           <div id="gitHub">소스보기 : <a href="https://github.com/Kim-777">https://github.com/Kim-777/spring-project-studyboard</a></div>
            <div class="logo_box">
                <img class="skill_logo" src="${root}images/html-css-js-logo.png">
                <img class="skill_logo" src="${root}images/java-logo.png">

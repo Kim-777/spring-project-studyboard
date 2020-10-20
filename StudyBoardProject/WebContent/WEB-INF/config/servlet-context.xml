@@ -9,7 +9,7 @@
 			 					 http://www.springframework.org/schema/beans/spring-beans.xsd
 			 					 http://www.springframework.org/schema/context
 			 					 http://www.springframework.org/schema/context/spring-context.xsd">
-																															 
+																							 
 	<!-- 스캔한 패키지 내부의 클래스 중에 controller 들이 있으면 controller로 등록합니다. -->
 	<annotation-driven/>
 	

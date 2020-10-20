@@ -30,9 +30,7 @@ h1 {
 
 /* 에러 박스들의 공통 속성입니다. */
 .error_box {
-    position: absolute;
-    bottom: 0;
-    left: 166px;
+	float: left;
 }
 
 /* form을 한번더 묶어줍니다. */

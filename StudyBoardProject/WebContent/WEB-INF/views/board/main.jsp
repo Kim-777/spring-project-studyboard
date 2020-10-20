@@ -18,7 +18,7 @@
     <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
     <!-- 글자체를 임포트합니다. -->
 	<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">	
-    <title>게시판 메인</title>
+    <title>게시판 메인 페이지</title>
 </head>
 <body>
 	<!-- header 부분을 import 합니다(start) -->
